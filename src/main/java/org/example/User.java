@@ -2,15 +2,19 @@ package org.example;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-@AllArgsConstructor
-@NoArgsConstructor
-public class User {
+
+public class User implements GpaDistribution {
     private int id;
     private int age;
     private String name;
     private String surname;
     public boolean gender;
 
+    public User(String name, String surname,int age){
+        setName(name);
+        setSurname(surname);
+        setAge(age);
+    }
     public int getId() {
         return id;
     }
@@ -44,4 +48,7 @@ public class User {
                 ", gender: " + (gender ? "male" : "female") +
                 "}";
     }
+
+    @Override
+    public double Hungergames() {return 0;}
 }
