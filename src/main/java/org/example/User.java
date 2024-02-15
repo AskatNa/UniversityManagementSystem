@@ -48,7 +48,6 @@ public class User implements GpaDistribution {
                 ", gender: " + (gender ? "male" : "female") +
                 "}";
     }
-
     @Override
     public double Hungergames() {return 0;}
 }
