@@ -15,6 +15,10 @@ public class User implements GpaDistribution {
         setSurname(surname);
         setAge(age);
     }
+
+    public User(int id, int age, String name, String surname, Boolean gender) {
+    }
+
     public int getId() {
         return id;
     }

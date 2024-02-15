@@ -3,6 +3,7 @@ package org.example;
 import java.util.Scanner;
 
 public class Student extends User {
+
     private double gpa;
     private final double ScholarShip = 41898.00;
 
