@@ -50,8 +50,6 @@ public class Main {
                 System.out.println("could not close connection: " + e.getMessage());
             }
         }
-        for(User user : users) {
-            System.out.println(user);
-        }
+        for(User user : users) {System.out.println(user);}
     }
 }
