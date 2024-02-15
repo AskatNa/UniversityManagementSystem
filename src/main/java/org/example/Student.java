@@ -1,9 +1,12 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Student extends User {
     private double gpa;
     private final double ScholarShip = 41898.00;
 
+    Scanner scanner = new Scanner(System.in);
     public Student(String name,String surname, int age, double gpa){
         super(name,surname,age);
         this.gpa = gpa;
