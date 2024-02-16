@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.Scanner;
 
 public class Student extends User {
@@ -14,7 +13,6 @@ public class Student extends User {
     }
     public double getGpa() {return gpa;}
     public void setGpa(double gpa) {this.gpa = gpa;}
-
 
 
     @Override
