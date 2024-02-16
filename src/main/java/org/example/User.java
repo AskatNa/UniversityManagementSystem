@@ -1,8 +1,5 @@
 package org.example;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 public class User implements GpaDistribution {
     private int id;
     private int age;

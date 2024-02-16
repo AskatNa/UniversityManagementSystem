@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="create 2 classes">
+    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Fixed User">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Connect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Groups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Groups.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Subjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Subjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-1.8.0_402-corretto-1.8.0_402-f644763e9732-af3fa2b8" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -113,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708010521220</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed User">
+      <option name="closed" value="true" />
+      <created>1708012684386</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708012684386</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +142,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
     <MESSAGE value="create 2 classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="create 2 classes" />
+    <MESSAGE value="Fixed User" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed User" />
   </component>
 </project>
