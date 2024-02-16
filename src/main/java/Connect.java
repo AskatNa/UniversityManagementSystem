@@ -1,4 +1,4 @@
-import org.example.User;
+import org.example.entities.User;
 
 import java.sql.*;
 import java.util.ArrayList;

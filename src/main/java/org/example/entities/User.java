@@ -1,7 +1,6 @@
-package org.example;
+package org.example.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.example.services.GpaDistribution;
 
 public class User implements GpaDistribution {
     private int id;
