@@ -60,6 +60,6 @@ public class Student extends User {
 
     @Override
     public double GPADistribution() {
-
+        return gpa;
     }
 }
