@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Teacher STOP!">
+    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Update some fragments in the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,13 +33,15 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Connect.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.nMain.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/postgresql-42.7.1.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/IdeaProjects/chernovik&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,6 +73,7 @@
       <workItem from="1707972450867" duration="2288000" />
       <workItem from="1708009982571" duration="2188000" />
       <workItem from="1708075912997" duration="3864000" />
+      <workItem from="1708265549111" duration="3556000" />
     </task>
     <task id="LOCAL-00001" summary="create 2 classes">
       <option name="closed" value="true" />
@@ -130,7 +131,31 @@
       <option name="project" value="LOCAL" />
       <updated>1708242618792</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Proverka GitHub">
+      <option name="closed" value="true" />
+      <created>1708244196682</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708244196682</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Corrected password entry">
+      <option name="closed" value="true" />
+      <created>1708264341298</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708264341298</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update some fragments in the code">
+      <option name="closed" value="true" />
+      <created>1708268984744</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708268984744</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +177,9 @@
     <MESSAGE value="create 2 classes" />
     <MESSAGE value="main" />
     <MESSAGE value="Teacher STOP!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Teacher STOP!" />
+    <MESSAGE value="Proverka GitHub" />
+    <MESSAGE value="Corrected password entry" />
+    <MESSAGE value="Update some fragments in the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update some fragments in the code" />
   </component>
 </project>
