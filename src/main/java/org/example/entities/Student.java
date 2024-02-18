@@ -12,10 +12,11 @@ public class Student extends User {
     public String message;
     //Attendence = 70%
     Scanner scanner = new Scanner(System.in);
-    public Student(String name,String surname, int age, double gpa,int Attendence){
-        super(name,surname,age);
+    public Student(String name,String surname, int age,boolean gender, double gpa,int Attendence, int id, String password){
+        super(name,surname,age, password, id, gender);
         this.gpa = gpa;
         this.Attendence = Attendence;
+        Retake = DeadSouls();
     }
 
     public int getAttendence() {
@@ -65,10 +66,10 @@ public class Student extends User {
     @Override
     public boolean DeadSouls(){
         if(Attendence < percentage){
-            return Retake = true;
+            return true;
         }
         else{
-            return Retake = false;
+            return false;
         }
     }
 
@@ -76,6 +77,6 @@ public class Student extends User {
     public double GPADistribution() {return gpa;}
     @Override
     public String toString() {
-        return getName() +" " + getSurname() +" " + "Attendence:" + Attendence + " " + "Retake:" +DeadSouls() +" " + message +" " + Hungergames() + " Gpa: " + getGpa();
+        return getName() +" " + getSurname() +" " + "Attendence:" + Attendence + " " + "Retake:" +DeadSouls() +" " +"Schollarship" +" " + Hungergames() + " Gpa: " + getGpa();
     }
 }

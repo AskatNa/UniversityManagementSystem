@@ -9,24 +9,17 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     private String surname;
     public boolean gender;
     private String password;
-    public User(String name,String surname,String password,int id){
+    public User() {}
+
+    public User(String name,String surname, int age, String password,int id, boolean gender){
         this.name = name;
         this.surname = surname;
+        this.age = age;
         this.password = password;
         this.id = id;
-    }
-    public User(){
-
-    }
-    public User(String name, String surname,int age){
-        setName(name);
-        setSurname(surname);
-        setAge(age);
+        this.gender = gender;
     }
 
-    public User(int id, int age, String name, String surname, Boolean gender) {
-
-    }
 
     public String getPassword() {
         return password;
