@@ -9,7 +9,7 @@ public class Student extends User {
     private int Attendence;
     private final int percentage = 70;
     private boolean Retake;
-    public String message;
+    //public String message;
     //Attendence = 70%
     Scanner scanner = new Scanner(System.in);
     public Student(String name,String surname, int age,boolean gender, double gpa,int Attendence, int id, String password){
@@ -77,6 +77,6 @@ public class Student extends User {
     public double GPADistribution() {return gpa;}
     @Override
     public String toString() {
-        return getName() +" " + getSurname() +" " + "Attendence:" + Attendence + " " + "Retake:" +DeadSouls() +" " +"Schollarship" +" " + Hungergames() + " Gpa: " + getGpa();
+        return getName() +" " + getSurname() +" " + "Attendence:" + Attendence + " " + "Retake:" +DeadSouls() +" " +"ScholarShip" +" " + Hungergames() + " Gpa: " + getGpa();
     }
 }
