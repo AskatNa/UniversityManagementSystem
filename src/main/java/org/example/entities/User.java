@@ -8,7 +8,16 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     private String name;
     private String surname;
     public boolean gender;
+    private String password;
+    public User(String name,String surname,String password,int id){
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.id = id;
+    }
+    public User(){
 
+    }
     public User(String name, String surname,int age){
         setName(name);
         setSurname(surname);
@@ -16,7 +25,17 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     }
 
     public User(int id, int age, String name, String surname, Boolean gender) {
+
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     public int getId() {
         return id;
