@@ -12,27 +12,42 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Student student1 = new Student("Nurislam","Baltabekov",18,1.91,100);
-        Student student2 = new Student("Yerkhan","Akhmet",18,1.85,48);
-        Student student3 = new Student("Askat","Narinbetov",18,2.5,80);
+    String conString = "jdbc:postgresql://localhost:5432/something";
+    ResultSet resultSet = null;
+    Connection con = null;
+    Scanner scanner = new Scanner(System.in);
+    Statement stat = null;
+    ArrayList<User> users = new ArrayList<User>();
+    User user = new User();
+    try {
+        Class.forName("org.postgresql.Driver");
+        con = DriverManager.getConnection(conString, "postgres", "123456");
+        stat = con.createStatement();
+        resultSet = stat.executeQuery("SELECT id, name, surname, gender, age FROM users ORDER BY id");
 
-        Teacher teacher1 = new Teacher("Nursultan","Khaimuldin",27,"Object-Oriented Programming");
-        Teacher teacher2 = new Teacher("Askar","Khaimuldin",25,"Introduction to Programming 1");
-        Teacher teacher3 = new Teacher("Bibinur","Meirbekova",25,"Introduction to Programming 2");
-
-        ArrayList<Student> student = new ArrayList<>();
-        student.add(student1);
-        student.add(student2);
-        student.add(student3);
-
-        Collections.sort(student);
-        printData(student);
-    }
-    public static void printData(Iterable<Student> student){
-        for ( Student students: student){
-            System.out.println(students);
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            String surname = resultSet.getString("surname");
+            Boolean gender = resultSet.getBoolean("gender");
+            int age = resultSet.getInt("age");
+            user = new User(id, age, name, surname, gender);
+            users.add(user);
         }
+
+
+
+    } catch(ClassNotFoundException e){
+        System.out.println(e.getMessage());
     }
+    catch(SQLException e) {
+        System.out.println(e.getMessage());
+    }
+        for(User user1 : users){
+            System.out.println(user1);
+        }
+
+    }
+
 
 }
