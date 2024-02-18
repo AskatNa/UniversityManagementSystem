@@ -1,5 +1,6 @@
 package org.example.services;
 
-public interface GpaDistribution {
+public interface Gpa_and_Retake {
     double Hungergames();
+    boolean DeadSouls();
 }
