@@ -1,8 +1,8 @@
 package org.example.entities;
 
-import org.example.services.GpaDistribution;
+import org.example.services.Gpa_and_Retake;
 
-public class User implements GpaDistribution {
+public class User implements Comparable<User>, Gpa_and_Retake {
     private int id;
     private int age;
     private String name;
@@ -52,5 +52,17 @@ public class User implements GpaDistribution {
                 "}";
     }
     @Override
-    public double Hungergames() {return 0;}
+    public double Hungergames() {return 0.0;}
+
+    @Override
+    public boolean DeadSouls(){
+        return true;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return Double.compare(this.GPADistribution(), o.GPADistribution());
+    }
+
+    public double GPADistribution(){return 0;}
 }

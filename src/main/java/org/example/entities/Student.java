@@ -57,4 +57,9 @@ public class Student extends User {
             return Retake = true;
         }
     }
+
+    @Override
+    public double GPADistribution() {
+
+    }
 }
