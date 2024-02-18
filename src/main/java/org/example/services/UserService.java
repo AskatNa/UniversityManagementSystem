@@ -1,8 +1,5 @@
 package org.example.services;
 
-import org.example.entities.User;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import java.sql.*;
@@ -34,8 +31,13 @@ public class UserService {
 
             System.out.println("Enter Surname:");
             String surname = scanner.nextLine();
-            System.out.println("Create Password:");
+            System.out.println("Enter Password:");
             String password = scanner.nextLine();
+
+            if (!password.equals("123456")) {
+                System.out.println("Invalid password. Please try again.");
+                return;
+            }
 
             preparedStatement = con.prepareStatement("INSERT INTO registration (name, surname, password) VALUES (?, ?, ?)");
             preparedStatement.setString(1, name);
