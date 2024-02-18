@@ -73,10 +73,11 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     @Override
     public double Hungergames() {return 0.0;}
 
-    @Override
-    public boolean DeadSouls(){
-        return true;
-    }
+
+   public boolean DeadSouls(){
+
+       return false;
+   }
 
     @Override
     public int compareTo(User o) {
