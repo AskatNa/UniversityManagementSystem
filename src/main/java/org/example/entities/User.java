@@ -72,17 +72,14 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     }
     @Override
     public double Hungergames() {return 0.0;}
-
-
-   public boolean DeadSouls(){
-
-       return false;
-   }
-
+   public boolean DeadSouls(){return false;}
     @Override
-    public int compareTo(User o) {
-        return Double.compare(this.GPADistribution(), o.GPADistribution());
-    }
+    public int compareTo(User o) {return Double.compare(this.GPADistribution(), o.GPADistribution());}
 
     public double GPADistribution(){return 0;}
+
+//    @Override
+//    public String Message() {
+//        return null;
+//    }
 }
