@@ -1,5 +1,7 @@
 package org.example.services;
 
+import java.util.Scanner;
+
 import java.sql.*;
 
 public class UserService {
@@ -8,6 +10,7 @@ public class UserService {
         Connection con = null;
         PreparedStatement ps = null;
         Statement stmt = null;
+        Scanner scanner = new Scanner(System.in);
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(stringCon, "postgres", "123456");
