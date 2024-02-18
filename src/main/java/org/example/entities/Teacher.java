@@ -1,7 +1,10 @@
 package org.example.entities;
 
+import java.util.Scanner;
+
 public class Teacher extends User{
     private String course;
+    Scanner scanner = new Scanner(System.in);
 
     public Teacher(String name, String surname,int age, String course){
         super(name,surname,age);

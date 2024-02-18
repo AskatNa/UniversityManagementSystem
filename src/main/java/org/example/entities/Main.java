@@ -27,7 +27,12 @@ public class Main {
         student.add(student3);
 
         Collections.sort(student);
+        printData(student);
     }
-
+    public static void printData(Iterable<Student> student){
+        for ( Student students: student){
+            System.out.println(students);
+        }
+    }
 
 }

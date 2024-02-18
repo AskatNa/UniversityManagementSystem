@@ -48,7 +48,7 @@ public class Student extends User {
     }
 
     public boolean DeadSouls(){
-        if(Attendence == percentage){
+        if(Attendence >= percentage){
             System.out.println("You don`t have a Retake");
             return Retake = false;
         }
