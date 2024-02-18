@@ -20,19 +20,23 @@ public class Student extends User {
     public int getAttendence() {
         return Attendence;
     }
+    public void setAttendence(int Attendence) {
+        Attendence = Attendence;
+    }
 
-    public void setAttendence(int attendence) {
-        Attendence = attendence;
+    public boolean getRetake() {
+        return Retake;
+    }
+
+    public void setRetake(boolean Retake) {
+        this.Retake = Retake;
     }
 
     public double getGpa() {return gpa;}
 
     public void setGpa(double gpa) {this.gpa = gpa;}
 
-    @Override
-    public String toString() {
-        return getName() + getSurname()  + "Attendence:" + Attendence + "Retake:" + Retake + "Gpa: " + getGpa();
-    }
+
 
     @Override
     public double Hungergames() {
@@ -46,20 +50,24 @@ public class Student extends User {
             System.out.println("You don`t get SchoalrShip");
             return 0.0;}
     }
-
+    @Override
     public boolean DeadSouls(){
-        if(Attendence >= percentage){
-            System.out.println("You don`t have a Retake");
-            return Retake = false;
+        if(Attendence < percentage){
+            System.out.println("You have a Retake");
+            return Retake = true;
         }
         else{
-            System.out.println("You have a retake");
-            return Retake = true;
+            System.out.println("You don`t have a Retake");
+            return Retake = false;
         }
     }
 
     @Override
     public double GPADistribution() {
         return gpa;
+    }
+    @Override
+    public String toString() {
+        return getName() +" " + getSurname() +" " + "Attendence:" + Attendence + " " + "Retake:" +DeadSouls() + " Gpa: " + getGpa();
     }
 }
