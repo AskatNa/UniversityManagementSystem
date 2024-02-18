@@ -34,9 +34,6 @@ public class Main {
             user = new User(id, age, name, surname, gender);
             users.add(user);
         }
-
-
-
     } catch(ClassNotFoundException e){
         System.out.println(e.getMessage());
     }
@@ -46,8 +43,5 @@ public class Main {
         for(User user1 : users){
             System.out.println(user1);
         }
-
     }
-
-
 }
