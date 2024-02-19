@@ -34,9 +34,11 @@ public class Main {
             int attendence = resultSet.getInt("attendence");
             double gpa = resultSet.getDouble("gpa");
             boolean retake = resultSet.getBoolean("retake");
-
+            String course = resultSet.getString("course");
+            int password = resultSet.getInt("password");
+            Teacher user = null;
             if(position == true) {
-                Teacher user = new Teacher(name, surname, age, course, password, gender , id);
+                user = new Teacher(name, surname, age, course, password, gender , id);
             }
             users.add(user);
         }

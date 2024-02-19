@@ -1,0 +1,79 @@
+Index: src/main/java/org/example/Subjects.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\npublic class Subjects {\r\n    public enum Subject {\r\n        Physical_Education_2,Object_Oriented_Programming,Foreign_Language_2,Introduction_to_Programming_2,Political_Science,Calculus_2,Discrete_Mathematics\r\n        }\r\n\r\n    public int Physical_Education_2 = 5;\r\n    public int Object_Oriented_Programming = 5;\r\n    public int Foreign_Language_2 = 5;\r\n    public int Introduction_to_Programming_2 = 5;\r\n    public int Discrete_Mathematics = 5;\r\n    public int Political_Science = 2;\r\n\r\n}\r\n\r\n
+===================================================================
+diff --git a/src/main/java/org/example/Subjects.java b/src/main/java/org/example/Subjects.java
+--- a/src/main/java/org/example/Subjects.java	
++++ b/src/main/java/org/example/Subjects.java	
+@@ -1,7 +1,7 @@
+ package org.example;
+ 
+-public class Subjects {
+-    public enum Subject {
++public class Subjects  {
++    public enum Subject{
+         Physical_Education_2,Object_Oriented_Programming,Foreign_Language_2,Introduction_to_Programming_2,Political_Science,Calculus_2,Discrete_Mathematics
+         }
+ 
+Index: src/main/java/org/example/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport java.sql.*;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\n\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        String url = \"jdbc:postgresql://localhost:5432/simpledb\";\r\n        String username = \"postgres\";\r\n        String password = \"123456\";\r\n\r\n    }\r\n}
+===================================================================
+diff --git a/src/main/java/org/example/Main.java b/src/main/java/org/example/Main.java
+--- a/src/main/java/org/example/Main.java	
++++ b/src/main/java/org/example/Main.java	
+@@ -1,18 +1,14 @@
+ package org.example;
+-
+ import java.sql.*;
+-
+ import java.sql.Connection;
+ import java.sql.DriverManager;
+ import java.sql.SQLException;
+ import java.util.ArrayList;
+ 
+-
+ public class Main {
+     public static void main(String[] args) {
+         String url = "jdbc:postgresql://localhost:5432/simpledb";
+         String username = "postgres";
+         String password = "123456";
+-
+     }
+ }
+\ No newline at end of file
+Index: src/main/java/org/example/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport lombok.AllArgsConstructor;\r\nimport lombok.NoArgsConstructor;\r\n\r\npublic class User implements GpaDistribution {\r\n    private int id;\r\n    private int age;\r\n    private String name;\r\n    private String surname;\r\n    public boolean gender;\r\n\r\n    public User(String name, String surname,int age){\r\n        setName(name);\r\n        setSurname(surname);\r\n        setAge(age);\r\n    }\r\n\r\n    public User(int id, int age, String name, String surname, Boolean gender) {\r\n    }\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n    public String getName() {\r\n        return name;\r\n    }\r\n    public void setName(String name) {\r\n        this.name = name;\r\n    }\r\n    public String getSurname() {\r\n        return surname;\r\n    }\r\n    public void setSurname(String surname) {\r\n        this.surname = surname;\r\n    }\r\n    public int getAge() {\r\n        return age;\r\n    }\r\n    public void setAge(int age) {\r\n        this.age = age;\r\n    }\r\n    public void setGender(boolean gender) {\r\n        this.gender = gender;\r\n    }\r\n    public String toString(){\r\n        return \"User{\" +\r\n                \"id: \" + id +\r\n                \", name: \" + name +\r\n                \", surname: \" + surname +\r\n                \", age: \" + age +\r\n                \", gender: \" + (gender ? \"male\" : \"female\") +\r\n                \"}\";\r\n    }\r\n    @Override\r\n    public double Hungergames() {return 0;}\r\n}
+===================================================================
+diff --git a/src/main/java/org/example/User.java b/src/main/java/org/example/User.java
+--- a/src/main/java/org/example/User.java	
++++ b/src/main/java/org/example/User.java	
+@@ -1,24 +1,19 @@
+ package org.example;
+-
+ import lombok.AllArgsConstructor;
+ import lombok.NoArgsConstructor;
+-
+ public class User implements GpaDistribution {
+     private int id;
+     private int age;
+     private String name;
+     private String surname;
+     public boolean gender;
+-
+     public User(String name, String surname,int age){
+         setName(name);
+         setSurname(surname);
+         setAge(age);
+     }
+-
+     public User(int id, int age, String name, String surname, Boolean gender) {
+     }
+-
+     public int getId() {
+         return id;
+     }
