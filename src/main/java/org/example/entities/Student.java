@@ -12,7 +12,7 @@ public class Student extends User {
     //public String message;
     //Attendence = 70%
     Scanner scanner = new Scanner(System.in);
-    public Student(String name,String surname, int age,boolean gender, double gpa,int Attendence, int id, String password){
+    public Student(String name,String surname, int age,boolean gender, double gpa,int Attendence, int id, int password){
         super(name,surname,age, password, id, gender);
         this.gpa = gpa;
         this.Attendence = Attendence;

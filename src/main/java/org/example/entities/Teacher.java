@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class Teacher extends User {
     private String course;
     Scanner scanner = new Scanner(System.in);
-
-    public Teacher(String name, String surname,int age, String course, String password, boolean gender, int id){
+    public Teacher(String name, String surname,int age, String course, int password, boolean gender, int id){
         super(name,surname,age, password, id, gender);
         setCourse(course);
     }
