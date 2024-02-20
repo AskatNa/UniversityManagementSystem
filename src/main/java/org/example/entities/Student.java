@@ -6,7 +6,7 @@ public class Student extends User {
     private double gpa;
     private final double ScholarShip = 41898.00;
     private final double IncreasedScholarShip = 48000.00;
-    private int Attendence;
+    private int Attendance;
     private final int percentage = 70;
     private boolean Retake;
     //public String message;
@@ -15,15 +15,15 @@ public class Student extends User {
     public Student(String name, String surname, String password, int age, double gpa, int Attendence, int id, boolean gender){
         super(name,surname,age, password, id, gender);
         this.gpa = gpa;
-        this.Attendence = Attendence;
+        this.Attendance = Attendence;
         Retake = DeadSouls();
     }
 
-    public int getAttendence() {
-        return Attendence;
+    public int getAttendance() {
+        return Attendance;
     }
-    public void setAttendence(int Attendence) {
-        Attendence = Attendence;
+    public void setAttendance(int Attendance) {
+        Attendance = Attendance;
     }
 
     public boolean getRetake() {
@@ -65,7 +65,7 @@ public class Student extends User {
 
     @Override
     public boolean DeadSouls(){
-        if(Attendence < percentage){
+        if(Attendance < percentage){
             return true;
         }
         else{
@@ -77,6 +77,6 @@ public class Student extends User {
     public double GPADistribution() {return gpa;}
     @Override
     public String toString() {
-        return getName() +" " + getSurname() +" " + "Attendence:" + Attendence + " " + "Retake:" +DeadSouls() +" " +"ScholarShip" +" " + Hungergames() + " Gpa: " + getGpa();
+        return getName() +" " + getSurname() +" " + "Attendence:" + Attendance + " " + "Retake:" +DeadSouls() +" " +"ScholarShip" +" " + Hungergames() + " Gpa: " + getGpa();
     }
 }
