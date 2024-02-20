@@ -1,0 +1,108 @@
+Index: src/main/java/org/example/entities/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport java.sql.*;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\n\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/Main.java b/src/main/java/org/example/entities/Main.java
+--- a/src/main/java/org/example/entities/Main.java	(revision eade22917de5435f00bb60a43ad26fa96d6001c1)
++++ b/src/main/java/org/example/entities/Main.java	(date 1708085859955)
+@@ -6,8 +6,6 @@
+ import java.sql.DriverManager;
+ import java.sql.SQLException;
+ import java.util.ArrayList;
+-
+-
+ public class Main {
+     public static void main(String[] args) {
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2483fa1b-5222-4bb7-b324-09466dfc9f19\" name=\"Changes\" comment=\"Fix the class\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/services/UserService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_18_46__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_18_46__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_20_58__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_20_58__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_21_22__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_21_22__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_21_53__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_21_53__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Connect.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Connect.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GpaDistribution.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/services/GpaDistribution.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Groups.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Groups.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Student.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Student.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Subjects.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Subjects.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Teacher.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Teacher.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/User.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/User.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2cOA566kpHHj0a0K4SXkZtKwdw4\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/postgresql-42.7.1.jar&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Аскат Наринбетов/IdeaProjects/UniversityManagementSystem/src/main/java/org/example/Main.java&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c\" />\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2483fa1b-5222-4bb7-b324-09466dfc9f19\" name=\"Changes\" comment=\"\" />\r\n      <created>1707972072352</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1707972072352</updated>\r\n      <workItem from=\"1707972450867\" duration=\"2288000\" />\r\n      <workItem from=\"1708009982571\" duration=\"2188000\" />\r\n      <workItem from=\"1708075912997\" duration=\"3864000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708009534961</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708009534961</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708009602848</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708009602848</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010065715</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010065715</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010454828</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010454828</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010521220</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010521220</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"first\" />\r\n    <MESSAGE value=\"create 2 classes\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"create 2 classes\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision eade22917de5435f00bb60a43ad26fa96d6001c1)
++++ b/.idea/workspace.xml	(date 1708238691166)
+@@ -4,21 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Fix the class">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/UserService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_18_46__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_18_46__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_20_58__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_20_58__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_21_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_21_22__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_21_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2024_21_53__Changes_.xml" afterDir="false" />
++    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Added GPAdistribution and Comparto to sort students by GPA">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Connect.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GpaDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/GpaDistribution.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Groups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Groups.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Subjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Subjects.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Teacher.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -68,8 +57,7 @@
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
+-        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
++        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -125,7 +113,31 @@
+       <option name="project" value="LOCAL" />
+       <updated>1708010521220</updated>
+     </task>
+-    <option name="localTasksCounter" value="6" />
++    <task id="LOCAL-00006" summary="Added 1 more interface and Attendence, percentage and Retake">
++      <option name="closed" value="true" />
++      <created>1708235297449</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1708235297449</updated>
++    </task>
++    <task id="LOCAL-00007" summary="Added 1 more interface and Attendence, percentage and Retake">
++      <option name="closed" value="true" />
++      <created>1708235452818</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1708235452818</updated>
++    </task>
++    <task id="LOCAL-00008" summary="Added GPAdistribution and Comparto to sort students by GPA">
++      <option name="closed" value="true" />
++      <created>1708237783188</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1708237783188</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -145,6 +157,8 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="first" />
+     <MESSAGE value="create 2 classes" />
+-    <option name="LAST_COMMIT_MESSAGE" value="create 2 classes" />
++    <MESSAGE value="Added 1 more interface and Attendence, percentage and Retake" />
++    <MESSAGE value="Added GPAdistribution and Comparto to sort students by GPA" />
++    <option name="LAST_COMMIT_MESSAGE" value="Added GPAdistribution and Comparto to sort students by GPA" />
+   </component>
+ </project>
+\ No newline at end of file

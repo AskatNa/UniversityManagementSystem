@@ -1,0 +1,161 @@
+Index: src/main/java/org/example/entities/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport java.sql.*;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\nimport java.util.Collections;\r\nimport java.util.Scanner;\r\n\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n    String conString = \"jdbc:postgresql://localhost:5432/something\";\r\n    ResultSet resultSet = null;\r\n    Connection con = null;\r\n    Scanner scanner = new Scanner(System.in);\r\n    Statement stat = null;\r\n    ArrayList<User> users = new ArrayList<User>();\r\n    User user = new User();\r\n    try {\r\n        Class.forName(\"org.postgresql.Driver\");\r\n        con = DriverManager.getConnection(conString, \"postgres\", \"123456\");\r\n        stat = con.createStatement();\r\n        resultSet = stat.executeQuery(\"SELECT id, name, surname, gender, age FROM users ORDER BY id\");\r\n\r\n        while (resultSet.next()) {\r\n            int id = resultSet.getInt(\"id\");\r\n            String name = resultSet.getString(\"name\");\r\n            String surname = resultSet.getString(\"surname\");\r\n            Boolean gender = resultSet.getBoolean(\"gender\");\r\n            int age = resultSet.getInt(\"age\");\r\n            user = new User(id, age, name, surname, gender);\r\n            users.add(user);\r\n        }\r\n\r\n\r\n\r\n    } catch(ClassNotFoundException e){\r\n        System.out.println(e.getMessage());\r\n    }\r\n    catch(SQLException e) {\r\n        System.out.println(e.getMessage());\r\n    }\r\n        for(User user1 : users){\r\n            System.out.println(user1);\r\n        }\r\n\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/Main.java b/src/main/java/org/example/entities/Main.java
+--- a/src/main/java/org/example/entities/Main.java	(revision 7470d8dac0f31f796bd4c060a0a8d828d79addd1)
++++ b/src/main/java/org/example/entities/Main.java	(date 1708249234490)
+@@ -1,53 +1,54 @@
+ package org.example.entities;
+ 
+-import java.sql.*;
+-
+-import java.sql.Connection;
+ import java.sql.DriverManager;
++
+ import java.sql.SQLException;
++
+ import java.util.ArrayList;
++
+ import java.util.Collections;
++
+ import java.util.Scanner;
+-
+-
+ public class Main {
+     public static void main(String[] args) {
+-    String conString = "jdbc:postgresql://localhost:5432/something";
+-    ResultSet resultSet = null;
+-    Connection con = null;
+-    Scanner scanner = new Scanner(System.in);
+-    Statement stat = null;
+-    ArrayList<User> users = new ArrayList<User>();
+-    User user = new User();
+-    try {
+-        Class.forName("org.postgresql.Driver");
+-        con = DriverManager.getConnection(conString, "postgres", "123456");
+-        stat = con.createStatement();
+-        resultSet = stat.executeQuery("SELECT id, name, surname, gender, age FROM users ORDER BY id");
+ 
+-        while (resultSet.next()) {
+-            int id = resultSet.getInt("id");
+-            String name = resultSet.getString("name");
+-            String surname = resultSet.getString("surname");
+-            Boolean gender = resultSet.getBoolean("gender");
+-            int age = resultSet.getInt("age");
+-            user = new User(id, age, name, surname, gender);
+-            users.add(user);
+-        }
++        Scanner sc = new Scanner(System.in);
++
++        Student student1 = new Student("Nurislam","Baltabekov",18,3.67,100);
++
++        Student student2 = new Student("Yerkhan","Akhmet",18,4.0,48);
++
++        Student student3 = new Student("Askat","Narinbetov",18,2.67,80);
++
++
++
++
++        Teacher teacher1 = new Teacher("Nursultan","Khaimuldin",27,"Object-Oriented Programming");
++
++        Teacher teacher2 = new Teacher("Askar","Khaimuldin",25,"Introduction to Programming 1");
++
++        Teacher teacher3 = new Teacher("Bibinur","Meirbekova",25,"Introduction to Programming 2");
++
++
++
++
++        ArrayList<Student> student = new ArrayList<>();
++
++        student.add(student1);
+ 
++        student.add(student2);
+ 
++        student.add(student3);
+ 
+-    } catch(ClassNotFoundException e){
+-        System.out.println(e.getMessage());
++        Collections.sort(student);
++        printData(student);
+     }
+-    catch(SQLException e) {
+-        System.out.println(e.getMessage());
+-    }
+-        for(User user1 : users){
+-            System.out.println(user1);
+-        }
++    public static void printData(Iterable<Student> student){
++        for(Student students: student){
++            System.out.println(students);
++        }
++    }
+ 
+-    }
+ 
+ 
+ }
+\ No newline at end of file
+Index: src/main/java/org/example/entities/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport org.example.services.Gpa_and_Retake;\r\n\r\npublic class User implements Comparable<User>, Gpa_and_Retake {\r\n    private int id;\r\n    private int age;\r\n    private String name;\r\n    private String surname;\r\n    public boolean gender;\r\n\r\n    public User(String name, String surname,int age){\r\n        setName(name);\r\n        setSurname(surname);\r\n        setAge(age);\r\n    }\r\n\r\n    public User(int id, int age, String name, String surname, Boolean gender) {\r\n    }\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n    public String getName() {\r\n        return name;\r\n    }\r\n    public void setName(String name) {\r\n        this.name = name;\r\n    }\r\n    public String getSurname() {\r\n        return surname;\r\n    }\r\n    public void setSurname(String surname) {\r\n        this.surname = surname;\r\n    }\r\n    public int getAge() {\r\n        return age;\r\n    }\r\n    public void setAge(int age) {\r\n        this.age = age;\r\n    }\r\n    public void setGender(boolean gender) {\r\n        this.gender = gender;\r\n    }\r\n    public String toString(){\r\n        return \"User{\" +\r\n                \"id: \" + id +\r\n                \", name: \" + name +\r\n                \", surname: \" + surname +\r\n                \", age: \" + age +\r\n                \", gender: \" + (gender ? \"male\" : \"female\") +\r\n                \"}\";\r\n    }\r\n    @Override\r\n    public double Hungergames() {return 0.0;}\r\n\r\n\r\n   public boolean DeadSouls(){\r\n\r\n       return false;\r\n   }\r\n\r\n    @Override\r\n    public int compareTo(User o) {\r\n        return Double.compare(this.GPADistribution(), o.GPADistribution());\r\n    }\r\n\r\n    public double GPADistribution(){return 0;}\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/User.java b/src/main/java/org/example/entities/User.java
+--- a/src/main/java/org/example/entities/User.java	(revision 7470d8dac0f31f796bd4c060a0a8d828d79addd1)
++++ b/src/main/java/org/example/entities/User.java	(date 1708251124325)
+@@ -53,17 +53,14 @@
+     }
+     @Override
+     public double Hungergames() {return 0.0;}
+-
+-
+-   public boolean DeadSouls(){
+-
+-       return false;
+-   }
+-
++   public boolean DeadSouls(){return false;}
+     @Override
+-    public int compareTo(User o) {
+-        return Double.compare(this.GPADistribution(), o.GPADistribution());
+-    }
++    public int compareTo(User o) {return Double.compare(this.GPADistribution(), o.GPADistribution());}
+ 
+     public double GPADistribution(){return 0;}
++
++//    @Override
++//    public String Message() {
++//        return null;
++//    }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2483fa1b-5222-4bb7-b324-09466dfc9f19\" name=\"Changes\" comment=\"Teacher STOP!\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Student.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Student.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2cOA566kpHHj0a0K4SXkZtKwdw4\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/postgresql-42.7.1.jar&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Аскат Наринбетов/IdeaProjects/UniversityManagementSystem/src/main/java/org/example/Main.java&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c\" />\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2483fa1b-5222-4bb7-b324-09466dfc9f19\" name=\"Changes\" comment=\"\" />\r\n      <created>1707972072352</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1707972072352</updated>\r\n      <workItem from=\"1707972450867\" duration=\"2288000\" />\r\n      <workItem from=\"1708009982571\" duration=\"2188000\" />\r\n      <workItem from=\"1708075912997\" duration=\"3864000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708009534961</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708009534961</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708009602848</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708009602848</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010065715</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010065715</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010454828</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010454828</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010521220</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010521220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"main\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708239905521</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708239905521</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Teacher STOP!\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708242618792</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708242618792</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"first\" />\r\n    <MESSAGE value=\"create 2 classes\" />\r\n    <MESSAGE value=\"main\" />\r\n    <MESSAGE value=\"Teacher STOP!\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Teacher STOP!\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7470d8dac0f31f796bd4c060a0a8d828d79addd1)
++++ b/.idea/workspace.xml	(date 1708250690645)
+@@ -4,10 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Teacher STOP!">
++    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Fixed DeadSouls to show if u have retake or no">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/Gpa_and_Retake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/Gpa_and_Retake.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
