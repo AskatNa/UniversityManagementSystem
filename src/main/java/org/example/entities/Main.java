@@ -22,7 +22,7 @@ public class Main {
         Class.forName("org.postgresql.Driver");
         con = DriverManager.getConnection(conString, "postgres", "123456");
         stat = con.createStatement();
-        resultSet = stat.executeQuery("SELECT id, name, surname, gender, age FROM users ORDER BY id");
+        resultSet = stat.executeQuery("SELECT id, name, surname, gender, age, password, course, Attendance , gpa, position, Retake FROM users ORDER BY id");
 
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
@@ -31,15 +31,12 @@ public class Main {
             Boolean gender = resultSet.getBoolean("gender");
             int age = resultSet.getInt("age");
             boolean position = resultSet.getBoolean("position");
-            int attendence = resultSet.getInt("attendence");
+            int Attendence = resultSet.getInt("Attendance");
             double gpa = resultSet.getDouble("gpa");
-            boolean retake = resultSet.getBoolean("retake");
+            boolean Retake = resultSet.getBoolean("Retake");
             String course = resultSet.getString("course");
-            int password = resultSet.getInt("password");
-            Teacher user = null;
-            if(position == true) {
-                user = new Teacher(name, surname, age, course, password, gender , id);
-            }
+            String password = resultSet.getString("password");
+            User user = User.createUser(name, surname , age, password, id, gender, course, Attendence, gpa , position);
             users.add(user);
         }
     } catch(ClassNotFoundException e){
