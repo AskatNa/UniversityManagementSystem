@@ -31,12 +31,12 @@ public class Main {
             Boolean gender = resultSet.getBoolean("gender");
             int age = resultSet.getInt("age");
             boolean position = resultSet.getBoolean("position");
-            int Attendence = resultSet.getInt("Attendance");
+            int Attendance = resultSet.getInt("Attendance");
             double gpa = resultSet.getDouble("gpa");
             boolean Retake = resultSet.getBoolean("Retake");
             String course = resultSet.getString("course");
             String password = resultSet.getString("password");
-            User user = User.createUser(name, surname , age, password, id, gender, course, Attendence, gpa , position);
+            User user = User.createUser(name, surname , age, password, id, gender, course, Attendance, gpa , position);
             users.add(user);
         }
     } catch(ClassNotFoundException e){

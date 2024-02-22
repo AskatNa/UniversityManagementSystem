@@ -15,7 +15,7 @@ public class Student extends User {
     public Student(String name, String surname, String password, int age, double gpa, int Attendence, int id, boolean gender){
         super(name,surname,age, password, id, gender);
         this.gpa = gpa;
-        this.Attendance = Attendence;
+        this.Attendance = Attendance;
         Retake = DeadSouls();
     }
 
