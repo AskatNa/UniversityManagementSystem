@@ -1,0 +1,193 @@
+Index: src/main/java/org/example/entities/Student.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Student extends User {\r\n    private double gpa;\r\n    private final double ScholarShip = 41898.00;\r\n    private final double IncreasedScholarShip = 48000.00;\r\n    private int Attendence;\r\n    private int percentage = 70;\r\n    private boolean Retake;\r\n    //Attendence = 70%\r\n    Scanner scanner = new Scanner(System.in);\r\n    public Student(String name,String surname, int age, double gpa,int Attendence){\r\n        super(name,surname,age);\r\n        this.gpa = gpa;\r\n        this.Attendence = Attendence;\r\n    }\r\n\r\n    public int getAttendence() {\r\n        return Attendence;\r\n    }\r\n    public void setAttendence(int Attendence) {\r\n        Attendence = Attendence;\r\n    }\r\n\r\n    public boolean getRetake() {\r\n        return Retake;\r\n    }\r\n\r\n    public void setRetake(boolean Retake) {\r\n        this.Retake = Retake;\r\n    }\r\n\r\n    public double getGpa() {return gpa;}\r\n\r\n    public void setGpa(double gpa) {this.gpa = gpa;}\r\n\r\n\r\n\r\n    @Override\r\n    public double Hungergames() {\r\n        if(gpa >= 2.67){\r\n            System.out.println(\"You get ScholarShip\");\r\n            return ScholarShip;}\r\n        else if (gpa >= 3.67) {\r\n            System.out.println(\"You get IncreasedScholarShip\");\r\n            return IncreasedScholarShip;\r\n        } else{\r\n            System.out.println(\"You don`t get SchoalrShip\");\r\n            return 0.0;}\r\n    }\r\n    @Override\r\n    public boolean DeadSouls(){\r\n        if(Attendence < percentage){\r\n            System.out.println(\"You have a Retake\");\r\n            return Retake = true;\r\n        }\r\n        else{\r\n            System.out.println(\"You don`t have a Retake\");\r\n            return Retake = false;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public double GPADistribution() {\r\n        return gpa;\r\n    }\r\n    @Override\r\n    public String toString() {\r\n        return getName() +\" \" + getSurname() +\" \" + \"Attendence:\" + Attendence + \" \" + \"Retake:\" +DeadSouls() + \" Gpa: \" + getGpa();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/Student.java b/src/main/java/org/example/entities/Student.java
+--- a/src/main/java/org/example/entities/Student.java	(revision 7470d8dac0f31f796bd4c060a0a8d828d79addd1)
++++ b/src/main/java/org/example/entities/Student.java	(date 1708250396797)
+@@ -54,7 +54,7 @@
+     public boolean DeadSouls(){
+         if(Attendence < percentage){
+             System.out.println("You have a Retake");
+-            return Retake = true;
++            return true;
+         }
+         else{
+             System.out.println("You don`t have a Retake");
+Index: src/main/java/org/example/entities/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport java.sql.*;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\nimport java.util.Collections;\r\nimport java.util.Scanner;\r\n\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n    String conString = \"jdbc:postgresql://localhost:5432/something\";\r\n    ResultSet resultSet = null;\r\n    Connection con = null;\r\n    Scanner scanner = new Scanner(System.in);\r\n    Statement stat = null;\r\n    ArrayList<User> users = new ArrayList<User>();\r\n    User user = new User();\r\n    try {\r\n        Class.forName(\"org.postgresql.Driver\");\r\n        con = DriverManager.getConnection(conString, \"postgres\", \"123456\");\r\n        stat = con.createStatement();\r\n        resultSet = stat.executeQuery(\"SELECT id, name, surname, gender, age FROM users ORDER BY id\");\r\n\r\n        while (resultSet.next()) {\r\n            int id = resultSet.getInt(\"id\");\r\n            String name = resultSet.getString(\"name\");\r\n            String surname = resultSet.getString(\"surname\");\r\n            Boolean gender = resultSet.getBoolean(\"gender\");\r\n            int age = resultSet.getInt(\"age\");\r\n            user = new User(id, age, name, surname, gender);\r\n            users.add(user);\r\n        }\r\n\r\n\r\n\r\n    } catch(ClassNotFoundException e){\r\n        System.out.println(e.getMessage());\r\n    }\r\n    catch(SQLException e) {\r\n        System.out.println(e.getMessage());\r\n    }\r\n        for(User user1 : users){\r\n            System.out.println(user1);\r\n        }\r\n\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/Main.java b/src/main/java/org/example/entities/Main.java
+--- a/src/main/java/org/example/entities/Main.java	(revision 7470d8dac0f31f796bd4c060a0a8d828d79addd1)
++++ b/src/main/java/org/example/entities/Main.java	(date 1708251283223)
+@@ -9,45 +9,38 @@
+ import java.util.Collections;
+ import java.util.Scanner;
+ 
+-
+ public class Main {
+     public static void main(String[] args) {
+-    String conString = "jdbc:postgresql://localhost:5432/something";
+-    ResultSet resultSet = null;
+-    Connection con = null;
+-    Scanner scanner = new Scanner(System.in);
+-    Statement stat = null;
+-    ArrayList<User> users = new ArrayList<User>();
+-    User user = new User();
+-    try {
+-        Class.forName("org.postgresql.Driver");
+-        con = DriverManager.getConnection(conString, "postgres", "123456");
+-        stat = con.createStatement();
+-        resultSet = stat.executeQuery("SELECT id, name, surname, gender, age FROM users ORDER BY id");
++        String conString = "jdbc:postgresql://localhost:5432/something";
++        ResultSet resultSet = null;
++        Connection con = null;
++        Scanner scanner = new Scanner(System.in);
++        Statement stat = null;
++        ArrayList<User> users = new ArrayList<User>();
++        User user;
++        try {
++            Class.forName("org.postgresql.Driver");
++            con = DriverManager.getConnection(conString, "postgres", "123456");
++            stat = con.createStatement();
++            resultSet = stat.executeQuery("SELECT id, name, surname, gender, age FROM users ORDER BY id");
+ 
+-        while (resultSet.next()) {
+-            int id = resultSet.getInt("id");
+-            String name = resultSet.getString("name");
+-            String surname = resultSet.getString("surname");
+-            Boolean gender = resultSet.getBoolean("gender");
+-            int age = resultSet.getInt("age");
+-            user = new User(id, age, name, surname, gender);
+-            users.add(user);
+-        }
++            while (resultSet.next()) {
++                int id = resultSet.getInt("id");
++                String name = resultSet.getString("name");
++                String surname = resultSet.getString("surname");
++                Boolean gender = resultSet.getBoolean("gender");
++                int age = resultSet.getInt("age");
++                user = new User(id, age, name, surname, gender);
++                users.add(user);
++            }
+ 
+-
+-
+-    } catch(ClassNotFoundException e){
+-        System.out.println(e.getMessage());
+-    }
+-    catch(SQLException e) {
+-        System.out.println(e.getMessage());
+-    }
+-        for(User user1 : users){
++        } catch (ClassNotFoundException e) {
++            System.out.println(e.getMessage());
++        } catch (SQLException e) {
++            System.out.println(e.getMessage());
++        }
++        for (User user1 : users) {
+             System.out.println(user1);
+         }
+-
+     }
+-
+-
+-}
+\ No newline at end of file
++}
+Index: src/main/java/org/example/entities/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport org.example.services.Gpa_and_Retake;\r\n\r\npublic class User implements Comparable<User>, Gpa_and_Retake {\r\n    private int id;\r\n    private int age;\r\n    private String name;\r\n    private String surname;\r\n    public boolean gender;\r\n\r\n    public User(String name, String surname,int age){\r\n        setName(name);\r\n        setSurname(surname);\r\n        setAge(age);\r\n    }\r\n\r\n    public User(int id, int age, String name, String surname, Boolean gender) {\r\n    }\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n    public String getName() {\r\n        return name;\r\n    }\r\n    public void setName(String name) {\r\n        this.name = name;\r\n    }\r\n    public String getSurname() {\r\n        return surname;\r\n    }\r\n    public void setSurname(String surname) {\r\n        this.surname = surname;\r\n    }\r\n    public int getAge() {\r\n        return age;\r\n    }\r\n    public void setAge(int age) {\r\n        this.age = age;\r\n    }\r\n    public void setGender(boolean gender) {\r\n        this.gender = gender;\r\n    }\r\n    public String toString(){\r\n        return \"User{\" +\r\n                \"id: \" + id +\r\n                \", name: \" + name +\r\n                \", surname: \" + surname +\r\n                \", age: \" + age +\r\n                \", gender: \" + (gender ? \"male\" : \"female\") +\r\n                \"}\";\r\n    }\r\n    @Override\r\n    public double Hungergames() {return 0.0;}\r\n\r\n\r\n   public boolean DeadSouls(){\r\n\r\n       return false;\r\n   }\r\n\r\n    @Override\r\n    public int compareTo(User o) {\r\n        return Double.compare(this.GPADistribution(), o.GPADistribution());\r\n    }\r\n\r\n    public double GPADistribution(){return 0;}\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/User.java b/src/main/java/org/example/entities/User.java
+--- a/src/main/java/org/example/entities/User.java	(revision 7470d8dac0f31f796bd4c060a0a8d828d79addd1)
++++ b/src/main/java/org/example/entities/User.java	(date 1708250396813)
+@@ -15,7 +15,7 @@
+         setAge(age);
+     }
+ 
+-    public User(int id, int age, String name, String surname, Boolean gender) {
++    public User(int id, int age, String name, String surname, Boolean gender){
+     }
+ 
+     public int getId() {
+Index: src/main/java/org/example/services/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.services;\r\n\r\nimport java.util.Scanner;\r\n\r\nimport java.sql.*;\r\n\r\npublic class UserService {\r\n    public void registration() {\r\n        String stringCon = \"jdbc:postgresql://localhost:5432/simpledb\";\r\n        Connection con = null;\r\n        PreparedStatement ps = null;\r\n        Statement stmt = null;\r\n        Scanner scanner = new Scanner(System.in);\r\n        try {\r\n            Class.forName(\"org.postgresql.Driver\");\r\n            con = DriverManager.getConnection(stringCon, \"postgres\", \"123456\");\r\n            stmt = con.createStatement();\r\n            ps = con.prepareStatement(\"INSERT INTO users (id, name, surname, gender, age) VALUES (?, ?, ?, ?, ?)\");\r\n\r\n\r\n        }\r\n        catch(ClassNotFoundException e) {\r\n            e.getMessage();\r\n        }\r\n        catch(SQLException e) {\r\n            e.getMessage();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/services/UserService.java b/src/main/java/org/example/services/UserService.java
+--- a/src/main/java/org/example/services/UserService.java	(revision 7470d8dac0f31f796bd4c060a0a8d828d79addd1)
++++ b/src/main/java/org/example/services/UserService.java	(date 1708250396819)
+@@ -16,8 +16,6 @@
+             con = DriverManager.getConnection(stringCon, "postgres", "123456");
+             stmt = con.createStatement();
+             ps = con.prepareStatement("INSERT INTO users (id, name, surname, gender, age) VALUES (?, ?, ?, ?, ?)");
+-
+-
+         }
+         catch(ClassNotFoundException e) {
+             e.getMessage();
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2483fa1b-5222-4bb7-b324-09466dfc9f19\" name=\"Changes\" comment=\"Teacher STOP!\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Student.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/entities/Student.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2cOA566kpHHj0a0K4SXkZtKwdw4\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/postgresql-42.7.1.jar&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Аскат Наринбетов/IdeaProjects/UniversityManagementSystem/src/main/java/org/example/Main.java&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c\" />\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2483fa1b-5222-4bb7-b324-09466dfc9f19\" name=\"Changes\" comment=\"\" />\r\n      <created>1707972072352</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1707972072352</updated>\r\n      <workItem from=\"1707972450867\" duration=\"2288000\" />\r\n      <workItem from=\"1708009982571\" duration=\"2188000\" />\r\n      <workItem from=\"1708075912997\" duration=\"3864000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708009534961</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708009534961</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708009602848</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708009602848</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010065715</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010065715</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010454828</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010454828</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"create 2 classes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708010521220</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708010521220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"main\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708239905521</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708239905521</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Teacher STOP!\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708242618792</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708242618792</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"first\" />\r\n    <MESSAGE value=\"create 2 classes\" />\r\n    <MESSAGE value=\"main\" />\r\n    <MESSAGE value=\"Teacher STOP!\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Teacher STOP!\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7470d8dac0f31f796bd4c060a0a8d828d79addd1)
++++ b/.idea/workspace.xml	(date 1708250396829)
+@@ -4,10 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Teacher STOP!">
++    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Proverka GitHub">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/UserService.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -130,7 +132,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1708242618792</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="Proverka GitHub">
++      <option name="closed" value="true" />
++      <created>1708244196682</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1708244196682</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -152,6 +162,7 @@
+     <MESSAGE value="create 2 classes" />
+     <MESSAGE value="main" />
+     <MESSAGE value="Teacher STOP!" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Teacher STOP!" />
++    <MESSAGE value="Proverka GitHub" />
++    <option name="LAST_COMMIT_MESSAGE" value="Proverka GitHub" />
+   </component>
+ </project>
+\ No newline at end of file
