@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="something new" />
+    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Easy? Got it? It is garbage collector." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +72,6 @@
       <workItem from="1708009982571" duration="2188000" />
       <workItem from="1708075912997" duration="3864000" />
       <workItem from="1708265549111" duration="3556000" />
-      <workItem from="1708269138880" duration="710000" />
     </task>
     <task id="LOCAL-00001" summary="create 2 classes">
       <option name="closed" value="true" />
@@ -154,15 +153,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708268984744</updated>
     </task>
-    <task id="LOCAL-00011" summary="something new">
+    <task id="LOCAL-00011" summary="teacher why?">
       <option name="closed" value="true" />
-      <created>1708269221570</created>
+      <created>1708324963804</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1708269221570</updated>
+      <updated>1708324963804</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Easy? Got it? It is garbage collector.">
+      <option name="closed" value="true" />
+      <created>1708445719504</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1708445719504</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +194,8 @@
     <MESSAGE value="Proverka GitHub" />
     <MESSAGE value="Corrected password entry" />
     <MESSAGE value="Update some fragments in the code" />
-    <MESSAGE value="something new" />
-    <option name="LAST_COMMIT_MESSAGE" value="something new" />
+    <MESSAGE value="teacher why?" />
+    <MESSAGE value="Easy? Got it? It is garbage collector." />
+    <option name="LAST_COMMIT_MESSAGE" value="Easy? Got it? It is garbage collector." />
   </component>
 </project>

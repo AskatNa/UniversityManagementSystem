@@ -1,13 +1,13 @@
 Index: src/main/java/org/example/entities/Student.java
 IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
-<+>package org.example.entities;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Student extends User {\r\n    private double gpa;\r\n    private final double ScholarShip = 41898.00;\r\n    private final double IncreasedScholarShip = 48000.00;\r\n    private int Attendence;\r\n    private int percentage = 70;\r\n    private boolean Retake;\r\n    //Attendence = 70%\r\n    Scanner scanner = new Scanner(System.in);\r\n    public Student(String name,String surname, int age, double gpa,int Attendence){\r\n        super(name,surname,age);\r\n        this.gpa = gpa;\r\n        this.Attendence = Attendence;\r\n    }\r\n\r\n    public int getAttendence() {\r\n        return Attendence;\r\n    }\r\n\r\n    public void setAttendence(int attendence) {\r\n        Attendence = attendence;\r\n    }\r\n\r\n    public double getGpa() {return gpa;}\r\n\r\n    public void setGpa(double gpa) {this.gpa = gpa;}\r\n\r\n    @Override\r\n    public String toString() {\r\n        return getName() + getSurname()  + \"Attendence:\" + Attendence + \"Retake:\" + Retake + \"Gpa: \" + getGpa();\r\n    }\r\n\r\n    @Override\r\n    public double Hungergames() {\r\n        if(gpa >= 2.67){\r\n            System.out.println(\"You get ScholarShip\");\r\n            return ScholarShip;}\r\n        else if (gpa >= 3.67) {\r\n            System.out.println(\"You get IncreasedScholarShip\");\r\n            return IncreasedScholarShip;\r\n        } else{\r\n            System.out.println(\"You don`t get SchoalrShip\");\r\n            return 0.0;}\r\n    }\r\n\r\n    public boolean DeadSouls(){\r\n        if(Attendence >= percentage){\r\n            System.out.println(\"You don`t have a Retake\");\r\n            return Retake = false;\r\n        }\r\n        else{\r\n            System.out.println(\"You have a retake\");\r\n            return Retake = true;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public double GPADistribution() {\r\n        return gpa;\r\n    }\r\n}\r\n
+<+>package org.example.entities;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Student extends User {\r\n    private double gpa;\r\n    private final double ScholarShip = 41898.00;\r\n    private final double IncreasedScholarShip = 48000.00;\r\n    private int Attendence;\r\n    private int percentage = 70;\r\n    private boolean Retake;\r\n    //Attendence = 70%\r\n    Scanner scanner = new Scanner(System.in);\r\n    public Student(String name,String surname, int age, double gpa,int Attendence){\r\n        super(name,surname,age);\r\n        this.gpa = gpa;\r\n        this.Attendence = Attendence;\r\n    }\r\n\r\n    public int getAttendence() {\r\n        return Attendence;\r\n    }\r\n    public void setAttendence(int Attendence) {\r\n        Attendence = Attendence;\r\n    }\r\n\r\n    public boolean getRetake() {\r\n        return Retake;\r\n    }\r\n\r\n    public void setRetake(boolean Retake) {\r\n        this.Retake = Retake;\r\n    }\r\n\r\n    public double getGpa() {return gpa;}\r\n\r\n    public void setGpa(double gpa) {this.gpa = gpa;}\r\n\r\n\r\n\r\n    @Override\r\n    public double Hungergames() {\r\n        if(gpa >= 2.67){\r\n            System.out.println(\"You get ScholarShip\");\r\n            return ScholarShip;}\r\n        else if (gpa >= 3.67) {\r\n            System.out.println(\"You get IncreasedScholarShip\");\r\n            return IncreasedScholarShip;\r\n        } else{\r\n            System.out.println(\"You don`t get SchoalrShip\");\r\n            return 0.0;}\r\n    }\r\n    @Override\r\n    public boolean DeadSouls(){\r\n        if(Attendence < percentage){\r\n            System.out.println(\"You have a Retake\");\r\n            return Retake = true;\r\n        }\r\n        else{\r\n            System.out.println(\"You don`t have a Retake\");\r\n            return Retake = false;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public double GPADistribution() {\r\n        return gpa;\r\n    }\r\n    @Override\r\n    public String toString() {\r\n        return getName() +\" \" + getSurname() +\" \" + \"Attendence:\" + Attendence + \" \" + \"Retake:\" +DeadSouls() + \" Gpa: \" + getGpa();\r\n    }\r\n}\r\n
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
 diff --git a/src/main/java/org/example/entities/Student.java b/src/main/java/org/example/entities/Student.java
---- a/src/main/java/org/example/entities/Student.java	(revision d5a3dba5f6733a6bfec55abab8b5dcefa14a532c)
-+++ b/src/main/java/org/example/entities/Student.java	(date 1708244897006)
+--- a/src/main/java/org/example/entities/Student.java	(revision dd0858279706766f18dd3fa93d29f4aef793da8e)
++++ b/src/main/java/org/example/entities/Student.java	(date 1708251255356)
 @@ -1,7 +1,5 @@
  package org.example.entities;
  
@@ -32,23 +32,20 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
---- a/.idea/workspace.xml	(revision d5a3dba5f6733a6bfec55abab8b5dcefa14a532c)
-+++ b/.idea/workspace.xml	(date 1708250904408)
-@@ -4,10 +4,12 @@
+--- a/.idea/workspace.xml	(revision dd0858279706766f18dd3fa93d29f4aef793da8e)
++++ b/.idea/workspace.xml	(date 1708270048032)
+@@ -4,9 +4,8 @@
      <option name="autoReloadType" value="SELECTIVE" />
    </component>
    <component name="ChangeListManager">
 -    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Teacher STOP!">
-+    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Adding Main">
++    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="add registration with meshkami">
        <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
        <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" afterDir="false" />
-+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" afterDir="false" />
-+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/UserService.java" afterDir="false" />
      </list>
      <option name="SHOW_DIALOG" value="false" />
-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
-@@ -54,11 +56,30 @@
+@@ -54,11 +53,30 @@
      &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
    }
  }</component>
@@ -81,15 +78,15 @@ diff --git a/.idea/workspace.xml b/.idea/workspace.xml
        </set>
      </attachedChunks>
    </component>
-@@ -73,6 +94,7 @@
+@@ -73,6 +91,7 @@
        <workItem from="1707972450867" duration="2288000" />
        <workItem from="1708009982571" duration="2188000" />
        <workItem from="1708075912997" duration="3864000" />
-+      <workItem from="1708244109957" duration="6725000" />
++      <workItem from="1708244109957" duration="7781000" />
      </task>
      <task id="LOCAL-00001" summary="create 2 classes">
        <option name="closed" value="true" />
-@@ -130,7 +152,15 @@
+@@ -130,7 +149,23 @@
        <option name="project" value="LOCAL" />
        <updated>1708242618792</updated>
      </task>
@@ -102,28 +99,26 @@ diff --git a/.idea/workspace.xml b/.idea/workspace.xml
 +      <option name="project" value="LOCAL" />
 +      <updated>1708244050727</updated>
 +    </task>
-+    <option name="localTasksCounter" value="9" />
++    <task id="LOCAL-00009" summary="add registration with meshkami">
++      <option name="closed" value="true" />
++      <created>1708251236379</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1708251236379</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
      <servers />
    </component>
    <component name="TypeScriptGeneratedFilesManager">
-@@ -152,6 +182,18 @@
+@@ -152,6 +187,8 @@
      <MESSAGE value="create 2 classes" />
      <MESSAGE value="main" />
      <MESSAGE value="Teacher STOP!" />
 -    <option name="LAST_COMMIT_MESSAGE" value="Teacher STOP!" />
 +    <MESSAGE value="Adding Main" />
-+    <option name="LAST_COMMIT_MESSAGE" value="Adding Main" />
-+  </component>
-+  <component name="XDebuggerManager">
-+    <breakpoint-manager>
-+      <breakpoints>
-+        <line-breakpoint enabled="true" type="java-line">
-+          <url>file://$PROJECT_DIR$/src/main/java/org/example/services/UserService.java</url>
-+          <line>53</line>
-+          <option name="timeStamp" value="2" />
-+        </line-breakpoint>
-+      </breakpoints>
-+    </breakpoint-manager>
++    <MESSAGE value="add registration with meshkami" />
++    <option name="LAST_COMMIT_MESSAGE" value="add registration with meshkami" />
    </component>
  </project>
 \ No newline at end of file

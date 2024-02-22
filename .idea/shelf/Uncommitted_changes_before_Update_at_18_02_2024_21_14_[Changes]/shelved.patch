@@ -1,29 +1,3 @@
-Index: src/main/java/org/example/entities/Student.java
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
-<+>package org.example.entities;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Student extends User {\r\n    private double gpa;\r\n    private final double ScholarShip = 41898.00;\r\n    private final double IncreasedScholarShip = 48000.00;\r\n    private int Attendence;\r\n    private int percentage = 70;\r\n    private boolean Retake;\r\n    //Attendence = 70%\r\n    Scanner scanner = new Scanner(System.in);\r\n    public Student(String name,String surname, int age, double gpa,int Attendence){\r\n        super(name,surname,age);\r\n        this.gpa = gpa;\r\n        this.Attendence = Attendence;\r\n    }\r\n\r\n    public int getAttendence() {\r\n        return Attendence;\r\n    }\r\n\r\n    public void setAttendence(int attendence) {\r\n        Attendence = attendence;\r\n    }\r\n\r\n    public double getGpa() {return gpa;}\r\n\r\n    public void setGpa(double gpa) {this.gpa = gpa;}\r\n\r\n    @Override\r\n    public String toString() {\r\n        return getName() + getSurname()  + \"Attendence:\" + Attendence + \"Retake:\" + Retake + \"Gpa: \" + getGpa();\r\n    }\r\n\r\n    @Override\r\n    public double Hungergames() {\r\n        if(gpa >= 2.67){\r\n            System.out.println(\"You get ScholarShip\");\r\n            return ScholarShip;}\r\n        else if (gpa >= 3.67) {\r\n            System.out.println(\"You get IncreasedScholarShip\");\r\n            return IncreasedScholarShip;\r\n        } else{\r\n            System.out.println(\"You don`t get SchoalrShip\");\r\n            return 0.0;}\r\n    }\r\n\r\n    public boolean DeadSouls(){\r\n        if(Attendence >= percentage){\r\n            System.out.println(\"You don`t have a Retake\");\r\n            return Retake = false;\r\n        }\r\n        else{\r\n            System.out.println(\"You have a retake\");\r\n            return Retake = true;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public double GPADistribution() {\r\n        return gpa;\r\n    }\r\n}\r\n
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
-diff --git a/src/main/java/org/example/entities/Student.java b/src/main/java/org/example/entities/Student.java
---- a/src/main/java/org/example/entities/Student.java	(revision d5a3dba5f6733a6bfec55abab8b5dcefa14a532c)
-+++ b/src/main/java/org/example/entities/Student.java	(date 1708244897006)
-@@ -1,7 +1,5 @@
- package org.example.entities;
- 
--import java.util.Scanner;
--
- public class Student extends User {
-     private double gpa;
-     private final double ScholarShip = 41898.00;
-@@ -10,7 +8,6 @@
-     private int percentage = 70;
-     private boolean Retake;
-     //Attendence = 70%
--    Scanner scanner = new Scanner(System.in);
-     public Student(String name,String surname, int age, double gpa,int Attendence){
-         super(name,surname,age);
-         this.gpa = gpa;
 Index: .idea/workspace.xml
 IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
@@ -32,98 +6,18 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
---- a/.idea/workspace.xml	(revision d5a3dba5f6733a6bfec55abab8b5dcefa14a532c)
-+++ b/.idea/workspace.xml	(date 1708250904408)
-@@ -4,10 +4,12 @@
+--- a/.idea/workspace.xml	(revision 8c0dfde5a4a278fadac64934c8e8eca9193274fa)
++++ b/.idea/workspace.xml	(date 1708269019986)
+@@ -4,11 +4,7 @@
      <option name="autoReloadType" value="SELECTIVE" />
    </component>
    <component name="ChangeListManager">
 -    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Teacher STOP!">
-+    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Adding Main">
-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
-       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" afterDir="false" />
-+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" afterDir="false" />
-+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/UserService.java" afterDir="false" />
-     </list>
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Student.java" afterDir="false" />
+-    </list>
++    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Teacher STOP!" />
      <option name="SHOW_DIALOG" value="false" />
      <option name="HIGHLIGHT_CONFLICTS" value="true" />
-@@ -54,11 +56,30 @@
-     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-   }
- }</component>
-+  <component name="RunManager">
-+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-+      <option name="MAIN_CLASS_NAME" value="org.example.entities.Main" />
-+      <module name="UniversityManagementSystem" />
-+      <extension name="coverage">
-+        <pattern>
-+          <option name="PATTERN" value="org.example.entities.*" />
-+          <option name="ENABLED" value="true" />
-+        </pattern>
-+      </extension>
-+      <method v="2">
-+        <option name="Make" enabled="true" />
-+      </method>
-+    </configuration>
-+    <recent_temporary>
-+      <list>
-+        <item itemvalue="Application.Main" />
-+      </list>
-+    </recent_temporary>
-+  </component>
-   <component name="SharedIndexes">
-     <attachedChunks>
-       <set>
--        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
--        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
-+        <option value="jdk-1.8.0_402-corretto-1.8.0_402-f644763e9732-af3fa2b8" />
-       </set>
-     </attachedChunks>
-   </component>
-@@ -73,6 +94,7 @@
-       <workItem from="1707972450867" duration="2288000" />
-       <workItem from="1708009982571" duration="2188000" />
-       <workItem from="1708075912997" duration="3864000" />
-+      <workItem from="1708244109957" duration="6725000" />
-     </task>
-     <task id="LOCAL-00001" summary="create 2 classes">
-       <option name="closed" value="true" />
-@@ -130,7 +152,15 @@
-       <option name="project" value="LOCAL" />
-       <updated>1708242618792</updated>
-     </task>
--    <option name="localTasksCounter" value="8" />
-+    <task id="LOCAL-00008" summary="Adding Main">
-+      <option name="closed" value="true" />
-+      <created>1708244050727</created>
-+      <option name="number" value="00008" />
-+      <option name="presentableId" value="LOCAL-00008" />
-+      <option name="project" value="LOCAL" />
-+      <updated>1708244050727</updated>
-+    </task>
-+    <option name="localTasksCounter" value="9" />
-     <servers />
-   </component>
-   <component name="TypeScriptGeneratedFilesManager">
-@@ -152,6 +182,18 @@
-     <MESSAGE value="create 2 classes" />
-     <MESSAGE value="main" />
-     <MESSAGE value="Teacher STOP!" />
--    <option name="LAST_COMMIT_MESSAGE" value="Teacher STOP!" />
-+    <MESSAGE value="Adding Main" />
-+    <option name="LAST_COMMIT_MESSAGE" value="Adding Main" />
-+  </component>
-+  <component name="XDebuggerManager">
-+    <breakpoint-manager>
-+      <breakpoints>
-+        <line-breakpoint enabled="true" type="java-line">
-+          <url>file://$PROJECT_DIR$/src/main/java/org/example/services/UserService.java</url>
-+          <line>53</line>
-+          <option name="timeStamp" value="2" />
-+        </line-breakpoint>
-+      </breakpoints>
-+    </breakpoint-manager>
-   </component>
- </project>
-\ No newline at end of file
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -9,7 +9,7 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     private String surname;
     public boolean gender;
     private String password;
-    public User() {}
+    public User(int id, int age, String name, String surname, Boolean gender) {}
 
     public User(String name,String surname, int age, String password,int id, boolean gender){
         this.name = name;
@@ -18,6 +18,16 @@ public class User implements Comparable<User>, Gpa_and_Retake {
         this.password = password;
         this.id = id;
         this.gender = gender;
+    }
+
+    public static User createUser (String name, String surname, int age,
+                                  String password, int id, boolean gender,
+                                  String course, int Attendance, double gpa, boolean position) {
+        if (position) {
+            return new Teacher(name, surname, age, course, password, gender, id);
+        } else {
+            return new Student(name, surname, password, age, gpa, Attendance, id, gender);
+        }
     }
 
 
