@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="Easy? Got it? It is garbage collector." />
+    <list default="true" id="2483fa1b-5222-4bb7-b324-09466dfc9f19" name="Changes" comment="why I can't commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +72,7 @@
       <workItem from="1708009982571" duration="2188000" />
       <workItem from="1708075912997" duration="3864000" />
       <workItem from="1708265549111" duration="3556000" />
+      <workItem from="1708571735569" duration="332000" />
     </task>
     <task id="LOCAL-00001" summary="create 2 classes">
       <option name="closed" value="true" />
@@ -196,6 +197,8 @@
     <MESSAGE value="Update some fragments in the code" />
     <MESSAGE value="teacher why?" />
     <MESSAGE value="Easy? Got it? It is garbage collector." />
-    <option name="LAST_COMMIT_MESSAGE" value="Easy? Got it? It is garbage collector." />
+    <MESSAGE value="it is not merging" />
+    <MESSAGE value="why I can't commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="why I can't commit" />
   </component>
 </project>
