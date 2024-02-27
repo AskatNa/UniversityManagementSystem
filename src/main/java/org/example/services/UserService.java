@@ -1,8 +1,12 @@
 package org.example.services;
 
+import static org.example.entities.Groups.Group.*;
+
 
 import java.util.Scanner;
 import java.sql.*;
+
+import org.example.entities.Groups;
 import org.example.entities.User;
 import org.example.entities.Student;
 import org.example.entities.Teacher;
@@ -39,13 +43,33 @@ public class UserService {
             System.out.println("Enter Position (false for Student, true for Teacher):");
             boolean position = scanner.nextBoolean();
 
-            preparedStatement = con.prepareStatement("INSERT INTO user_table (name, surname, password, gender, age, position) VALUES (?, ?, ?, ?, ?, ?)");
+            Groups[] groups = {Groups.SE_2301, Groups.SE_2302, Groups.SE_2303};
+            scanner = new Scanner(System.in);
+            int groupIndex;
+            do {
+                System.out.println("Enter Your group number (1-3)");
+                groupIndex = scanner.nextInt() - 1;
+            } while (groupIndex < 0 || groupIndex >= groups.length);
+            Groups selectedGroup = groups[groupIndex];
+
+            if (selectedGroup.equals(SE_2301)) {
+                System.out.println("You are in SE_2301");
+            } else if (selectedGroup.equals(SE_2302)) {
+                System.out.println("You are in SE_2302");
+            } else if (selectedGroup.equals(SE_2303)) {
+                System.out.println("You are in SE_2303");
+            }
+
+            scanner.close();
+
+            preparedStatement = con.prepareStatement("INSERT INTO user_table (name, surname, password, gender, age, position, groups) VALUES (?, ?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, surname);
             preparedStatement.setString(3, password);
             preparedStatement.setBoolean(4, gender);
             preparedStatement.setInt(5,age);
             preparedStatement.setBoolean(6, (position));
+            preparedStatement.setBoolean(7, (position));
             int rowsAffected = preparedStatement.executeUpdate();
 
             if (rowsAffected > 0) {

@@ -32,7 +32,7 @@ public class Main {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
-                Boolean gender = resultSet.getBoolean("gender");
+                boolean gender = resultSet.getBoolean("gender");
                 int age = resultSet.getInt("age");
                 boolean position = resultSet.getBoolean("position");
                 User user;
