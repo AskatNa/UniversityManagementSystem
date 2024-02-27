@@ -1,4 +1,7 @@
-package org.example.entities;
+package org.example;
+
+import org.example.entities.User;
+import org.example.services.UserService;
 
 import java.sql.*;
 
@@ -11,6 +14,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        UserService userService = new UserService();
+        userService.registration();
     String conString = "jdbc:postgresql://localhost:5432/simpledb";
     ResultSet resultSet = null;
     Connection con = null;
@@ -22,20 +27,35 @@ public class Main {
         Class.forName("org.postgresql.Driver");
         con = DriverManager.getConnection(conString, "postgres", "123456");
         stat = con.createStatement();
+        System.out.println("Enter Name:");
+        scanner.nextLine();
+
+        resultSet = stat.executeQuery("SELECT id, name, surname, gender, age, password, course, attendance , gpa, position, Retake FROM users ORDER BY id");
 
         System.out.println("Enter Name:");
-        String name = scanner.nextLine();
+        String name;
         System.out.println("Enter Surname:");
-        String surname = scanner.nextLine();
+        String surname;
         System.out.println("Enter Password:");
-        String password = scanner.nextLine();
+        String password = "";
         if (!password.equals("123456")) {
             System.out.println("Invalid password. Please try again.");
             return;
         }
 
-        resultSet = stat.executeQuery("SELECT id, name, surname, gender, age, password, course, attendance , gpa, position, Retake FROM users ORDER BY id");
+        PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO users (name, surname, password) VALUES (?, ?, ?)");
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, surname);
+        preparedStatement.setString(3, password);
 
+        int rowsAffected = preparedStatement.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("User registered successfully!");
+        } else {
+            System.out.println("Failed to register user.");
+        }
+        
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
             name = resultSet.getString("name");
@@ -50,7 +70,7 @@ public class Main {
             password = resultSet.getString("password");
             User user = User.createUser(name, surname , age, password, id, gender, course, Attendance, gpa , position,Retake);
             users.add(user);
-            
+
         }
     } catch(ClassNotFoundException e){
         System.out.println(e.getMessage());
