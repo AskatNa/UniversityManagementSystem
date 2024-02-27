@@ -34,6 +34,7 @@ public class UserService {
                 return;
             }
 
+
             System.out.println("Enter Password:");
             String password = scanner.nextLine();
 

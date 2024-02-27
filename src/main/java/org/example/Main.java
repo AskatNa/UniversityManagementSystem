@@ -77,5 +77,6 @@ public class Main {
         // Calling the registration method
         userService.registration();
 
+
     }
 }
