@@ -1,7 +1,6 @@
 package org.example.services;
 
 import java.util.Scanner;
-
 import java.sql.*;
 
 public class UserService {
@@ -18,75 +17,52 @@ public class UserService {
             con = DriverManager.getConnection(stringCon, "postgres", "123456");
             stmt = con.createStatement();
 
+            System.out.println("Enter Surname:");
+            String surname = scanner.nextLine();
+
             System.out.println("Enter Name:");
             String name = scanner.nextLine();
 
-            // Check if the name is already registered
-            resultSet = stmt.executeQuery("SELECT * FROM users WHERE name = '" + name + "'");
+            // Check if the user already exists
+            preparedStatement = con.prepareStatement("SELECT * FROM user_table WHERE name = ? AND surname = ?");
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, surname);
+            resultSet = preparedStatement.executeQuery();
+
             if (resultSet.next()) {
-                System.out.println("Name already registered. Please choose a different one.");
+                System.out.println("User already registered. Please choose a different one.");
                 return;
             }
 
-            System.out.println("Enter Surname:");
-            String surname = scanner.nextLine();
             System.out.println("Enter Password:");
             String password = scanner.nextLine();
 
-            if (!password.equals("123456")) {
-                System.out.println("Invalid password. Please try again.");
-                return;
+            // Use try-with-resources to automatically close resources
+            try (PreparedStatement insertStatement = con.prepareStatement("INSERT INTO user_table (name, surname, password) VALUES (?, ?, ?)")) {
+                insertStatement.setString(1, name);
+                insertStatement.setString(2, surname);
+                insertStatement.setString(3, password);
+
+                int rowsAffected = insertStatement.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    System.out.println("User registered successfully!");
+                } else {
+                    System.out.println("Failed to register user.");
+                }
             }
-
-            preparedStatement = con.prepareStatement("INSERT INTO users (name, surname, password) VALUES (?, ?, ?)");
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, surname);
-            preparedStatement.setString(3, password);
-
-            int rowsAffected = preparedStatement.executeUpdate();
-
-            if (rowsAffected > 0) {
-                System.out.println("User registered successfully!");
-            } else {
-                System.out.println("Failed to register user.");
-            }
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        } catch (SQLException e)  {
-            e.printStackTrace();
-        }
-
-
-        finally {
+        } finally {
             try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (stmt != null) stmt.close();
+                if (con != null) con.close();
                 scanner.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
     }
-//    public void addUser() {
-//
-//    }
-
-    public void teacherOperations() {
-
-    }
-
-    public void studentOperations() {
-
-    }
 }
-

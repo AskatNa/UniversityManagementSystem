@@ -1,13 +1,16 @@
 package org.example;
+import org.example.entities.Student;
+import org.example.entities.Teacher;
 import  org.example.entities.User;
 import org.example.services.UserService;
+
+
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -24,7 +27,7 @@ public class Main {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(conString, "postgres", "123456");
             stat = con.createStatement();
-            resultSet = stat.executeQuery("SELECT id, name, surname, gender, age, password, course, Attendance , gpa, position, Retake FROM users ORDER BY id");
+            resultSet = stat.executeQuery("SELECT id, name, surname, gender, age, password, position FROM user_table ORDER BY id");
 
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -33,12 +36,21 @@ public class Main {
                 Boolean gender = resultSet.getBoolean("gender");
                 int age = resultSet.getInt("age");
                 boolean position = resultSet.getBoolean("position");
-                int Attendance = resultSet.getInt("Attendance");
-                double gpa = resultSet.getDouble("gpa");
-                boolean Retake = resultSet.getBoolean("Retake");
-                String course = resultSet.getString("course");
-                String password = resultSet.getString("password");
-                User user = User.createUser(name, surname, age, password, id, gender, course, Attendance, gpa, position, Retake);
+                User user;
+                if (position) {
+                    resultSet = stat.executeQuery("SELECT course FROM teacher_table WHERE user_id = " + id);
+                    resultSet.next();
+                    String course = resultSet.getString("course");
+                    user = new Teacher(name, surname, age, course, "", gender, id);
+                } else {
+                    resultSet = stat.executeQuery("SELECT gpa, attendance, retake FROM student_table WHERE user_id = " + id);
+                    resultSet.next();
+                    double gpa = resultSet.getDouble("gpa");
+                    int attendance = resultSet.getInt("attendance");
+                    boolean retake = resultSet.getBoolean("retake");
+                    user = new Student(name, surname, "", age, gpa, attendance, id, gender, retake);
+                }
+
                 users.add(user);
             }
         } catch (ClassNotFoundException e) {
@@ -64,5 +76,6 @@ public class Main {
 
         // Calling the registration method
         userService.registration();
+
     }
 }
