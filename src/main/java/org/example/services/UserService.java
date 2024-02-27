@@ -29,6 +29,9 @@ public class UserService {
                 System.out.println("Student already registered. Please choose a different one.");
                 return;
             }
+            System.out.println("Enter Gender (true for male, false for female):");
+            boolean gender = scanner.nextBoolean();
+            scanner.nextLine();
 
             System.out.println("Enter Your Group:");
             String group = scanner.nextLine();
@@ -41,12 +44,13 @@ public class UserService {
                 return;
             }
 
-            preparedStatement = con.prepareStatement("INSERT INTO users (name, surname, groups, password) VALUES (?, ?, ? , ?)");
+            preparedStatement = con.prepareStatement("INSERT INTO users (name, surname, gender, groups, password) VALUES (?, ?, ?, ? , ?)");
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, surname);
+            preparedStatement.setString(3, String.valueOf(gender));
             String groups = null;
-            preparedStatement.setString(3, groups);
-            preparedStatement.setString(4, password);
+            preparedStatement.setString(4, groups);
+            preparedStatement.setString(5, password);
 
             int rowsAffected = preparedStatement.executeUpdate();
 

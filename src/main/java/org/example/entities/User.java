@@ -13,6 +13,7 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     private String surname;
     public boolean gender;
     private String password;
+    private Groups.Group groups;
     public User(String name,String surname, int age, String password,int id, boolean gender){
         this.name = name;
         this.surname = surname;
