@@ -13,23 +13,22 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     private String surname;
     public boolean gender;
     private String password;
-    private Groups.Group groups;
-    public User(String name,String surname, int age, String password,int id, boolean gender){
+    public User(String name, String surname, int age, String password, int id, boolean gender){
         this.name = name;
         this.surname = surname;
-        this.age = age;
+        this.age = this.age;
         this.password = password;
-        this.id = id;
+        this.id = this.id;
         this.gender = gender;
     }
 
     public static User createUser (String name, String surname, int age,
                                   String password, int id, boolean gender,
-                                  String course, int Attendance, double gpa, boolean position, boolean Retake) {
+                                  String course, int Attendance, double gpa, boolean position) {
         if (position) {
             return new Teacher(name, surname, age, course, password, gender, id);
         } else {
-            return new Student(name, surname, password, age, gpa, Attendance, id, gender, Retake);
+            return new Student(name, surname, password,age, gpa, Attendance,id, gender);
         }
     }
 

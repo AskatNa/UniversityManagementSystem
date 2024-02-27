@@ -2,9 +2,13 @@ package org.example.services;
 
 import java.util.Scanner;
 import java.sql.*;
+import org.example.entities.User;
+import org.example.entities.Student;
+import org.example.entities.Teacher;
+
 
 public class UserService {
-    public void registration() {
+    public User registration() {
         String stringCon = "jdbc:postgresql://localhost:5432/simpledb";
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -23,35 +27,51 @@ public class UserService {
             System.out.println("Enter Name:");
             String name = scanner.nextLine();
 
-            // Check if the user already exists
-            preparedStatement = con.prepareStatement("SELECT * FROM user_table WHERE name = ? AND surname = ?");
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, surname);
-            resultSet = preparedStatement.executeQuery();
-
-            if (resultSet.next()) {
-                System.out.println("User already registered. Please choose a different one.");
-                return;
-            }
-
-
             System.out.println("Enter Password:");
             String password = scanner.nextLine();
 
-            // Use try-with-resources to automatically close resources
-            try (PreparedStatement insertStatement = con.prepareStatement("INSERT INTO user_table (name, surname, password) VALUES (?, ?, ?)")) {
-                insertStatement.setString(1, name);
-                insertStatement.setString(2, surname);
-                insertStatement.setString(3, password);
+            System.out.println("Enter Age:");
+            int age = scanner.nextInt();
 
-                int rowsAffected = insertStatement.executeUpdate();
+            System.out.println("Enter Gender: ");
+            boolean gender = scanner.nextBoolean();
 
-                if (rowsAffected > 0) {
-                    System.out.println("User registered successfully!");
-                } else {
-                    System.out.println("Failed to register user.");
+            System.out.println("Enter Position (false for Student, true for Teacher):");
+            boolean position = scanner.nextBoolean();
+
+            preparedStatement = con.prepareStatement("INSERT INTO user_table (name, surname, password, gender, age, position) VALUES (?, ?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, surname);
+            preparedStatement.setString(3, password);
+            preparedStatement.setBoolean(4, gender);
+            preparedStatement.setInt(5,age);
+            preparedStatement.setBoolean(6, (position));
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("User registered successfully!");
+                User user;
+                if (position) {
+                    // Teacher
+                    System.out.println("Enter Course:");
+                    String course = scanner.next();
+                    user = new Teacher(name, surname, age, course, password, gender, 0);
+                    System.out.println(scanner);
+                    //scanner.teacherOperations();
+                }
+                else{
+                  //Student
+                    System.out.println("Enter GPA:");
+                    double gpa = scanner.nextDouble();
+
+                    System.out.println("Enter Attendance:");
+                    int Attendance = scanner.nextInt();
+
+                    Student student = new Student(name,surname,password,age,gpa,Attendance,0,gender);
+                    System.out.println(student.toString());
                 }
             }
+
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         } finally {
@@ -65,5 +85,6 @@ public class UserService {
                 e.printStackTrace();
             }
         }
+        return null;
     }
 }
