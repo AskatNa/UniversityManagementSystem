@@ -22,7 +22,6 @@ public class Main {
         Statement stat = null;
         PreparedStatement preparedStatement = null;
         List<User> users = new ArrayList<User>();
-
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(conString, "postgres", "123456");
@@ -48,9 +47,8 @@ public class Main {
                     double gpa = resultSet.getDouble("gpa");
                     int attendance = resultSet.getInt("attendance");
                     boolean retake = resultSet.getBoolean("retake");
-                    user = new Student(name, surname, "", age, gpa, attendance, id, gender, retake);
+                    user = new Student(name, surname, "", age, gpa, attendance, id, gender);
                 }
-
                 users.add(user);
             }
         } catch (ClassNotFoundException e) {

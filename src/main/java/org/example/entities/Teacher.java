@@ -1,7 +1,15 @@
 package org.example.entities;
 
-import java.util.Scanner;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.Scanner;
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Teacher extends User {
     private String course;
     Scanner scanner = new Scanner(System.in);
@@ -11,18 +19,14 @@ public class Teacher extends User {
         setCourse(course);
     }
 
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + "\nCourse: " + getCourse();
-    }
+//    @Override
+//    public String toString() {
+//        return super.toString() + "\nCourse: " + getCourse();
+//    }
+@Override
+public String toString() {
+    return "Name: " + getName() + " " +"Surname: "+ getSurname() + " Age: " + getAge() + " Gender: " + gender;
+}
 
     public void teacherOperations() {
         System.out.println("Teacher Operations Menu:");

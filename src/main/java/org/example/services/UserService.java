@@ -7,7 +7,6 @@ import org.example.entities.User;
 import org.example.entities.Student;
 import org.example.entities.Teacher;
 
-
 public class UserService {
     public User registration() {
         String stringCon = "jdbc:postgresql://localhost:5432/simpledb";
@@ -57,11 +56,12 @@ public class UserService {
                     System.out.println("Enter Course:");
                     String course = scanner.next();
                     user = new Teacher(name, surname, age, course, password, gender, 0);
-                    System.out.println(scanner);
-                    //scanner.teacherOperations();
+
+
                 }
                 else{
                   //Student
+                    System.out.println("You registered as a Student");
                     System.out.println("Enter GPA:");
                     double gpa = scanner.nextDouble();
 
