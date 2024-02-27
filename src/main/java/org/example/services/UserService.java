@@ -1,7 +1,11 @@
 package org.example.services;
 
+import org.example.entities.Groups;
+
 import java.util.Scanner;
 import java.sql.*;
+
+import static org.example.entities.Groups.Group.*;
 
 public class UserService {
     public void registration() {
@@ -33,6 +37,24 @@ public class UserService {
                 System.out.println("User already registered. Please choose a different one.");
                 return;
             }
+            Groups[] groups = {Groups.SE_2301, Groups.SE_2302, Groups.SE_2303};
+            scanner = new Scanner(System.in);
+            int groupIndex;
+            do {
+                System.out.println("Enter Your group number (1-3)");
+                groupIndex = scanner.nextInt() - 1;
+            } while (groupIndex < 0 || groupIndex >= groups.length);
+            Groups selectedGroup = groups[groupIndex];
+
+            if (selectedGroup.equals(SE_2301)) {
+                System.out.println("You are in SE_2301");
+            } else if (selectedGroup.equals(SE_2302)) {
+                System.out.println("You are in SE_2302");
+            } else if (selectedGroup.equals(SE_2303)) {
+                System.out.println("You are in SE_2303");
+            }
+
+            scanner.close();
 
 
             System.out.println("Enter Password:");
