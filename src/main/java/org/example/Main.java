@@ -1,5 +1,6 @@
-package org.example.entities;
-
+package org.example;
+import  org.example.entities.User;
+import org.example.services.UserService;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
