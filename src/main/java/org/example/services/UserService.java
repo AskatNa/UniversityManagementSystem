@@ -18,18 +18,18 @@ public class UserService {
             con = DriverManager.getConnection(stringCon, "postgres", "123456");
             stmt = con.createStatement();
 
+            System.out.println("Enter Surname:");
+            String surname = scanner.nextLine();
             System.out.println("Enter Name:");
             String name = scanner.nextLine();
 
             // Check if the name is already registered
-            resultSet = stmt.executeQuery("SELECT * FROM users WHERE name = '" + name + "'");
+            resultSet = stmt.executeQuery("SELECT * FROM users WHERE name = '" + surname + name + "'");
             if (resultSet.next()) {
                 System.out.println("Name already registered. Please choose a different one.");
                 return;
             }
 
-            System.out.println("Enter Surname:");
-            String surname = scanner.nextLine();
             System.out.println("Enter Password:");
             String password = scanner.nextLine();
 
