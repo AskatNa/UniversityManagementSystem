@@ -5,7 +5,6 @@ import org.example.services.Gpa_and_Retake;
 @NoArgsConstructor
 @Getter
 @Setter
-@RequiredArgsConstructor
 @AllArgsConstructor
 public class User implements Comparable<User>, Gpa_and_Retake {
     private int id;
@@ -14,8 +13,6 @@ public class User implements Comparable<User>, Gpa_and_Retake {
     private String surname;
     public boolean gender;
     private String password;
-    //public User(int id, int age, String name, String surname, Boolean gender) {}
-
     public User(String name,String surname, int age, String password,int id, boolean gender){
         this.name = name;
         this.surname = surname;
@@ -34,41 +31,7 @@ public class User implements Comparable<User>, Gpa_and_Retake {
             return new Student(name, surname, password, age, gpa, Attendance, id, gender, Retake);
         }
     }
-//
-//
-//    public String getPassword() {
-//        return password;
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
-//
-//
-//    public int getId() {
-//        return id;
-//    }
-//    public String getName() {
-//        return name;
-//    }
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//    public String getSurname() {
-//        return surname;
-//    }
-//    public void setSurname(String surname) {
-//        this.surname = surname;
-//    }
-//    public int getAge() {
-//        return age;
-//    }
-//    public void setAge(int age) {
-//        this.age = age;
-//    }
-//    public void setGender(boolean gender) {
-//        this.gender = gender;
-//    }
+
     public String toString(){
         return "User{" +
                 "id: " + id +
