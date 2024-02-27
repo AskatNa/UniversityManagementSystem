@@ -7,7 +7,6 @@ import java.sql.*;
 public class UserService {
     public void registration() {
         String stringCon = "jdbc:postgresql://localhost:5432/simpledb";
-
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
         Connection con = null;

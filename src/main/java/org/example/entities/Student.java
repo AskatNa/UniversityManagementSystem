@@ -1,6 +1,15 @@
 package org.example.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Scanner;
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 
 public class Student extends User {
     private double gpa;
@@ -16,28 +25,8 @@ public class Student extends User {
         super(name,surname,age, password, id, gender);
         this.gpa = gpa;
         this.Attendance = Attendance;
-        setRetake(Retake);
-    }
-
-    public int getAttendance() {
-        return Attendance;
-    }
-    public void setAttendance(int Attendance) {
-        Attendance = Attendance;
-    }
-
-    public boolean getRetake() {
-        return Retake;
-    }
-
-    public void setRetake(boolean Retake) {
         this.Retake = Retake;
     }
-
-    public double getGpa() {return gpa;}
-
-    public void setGpa(double gpa) {this.gpa = gpa;}
-
     @Override
     public double Hungergames() {
         if(DeadSouls()){
@@ -76,6 +65,11 @@ public class Student extends User {
     public double GPADistribution() {return gpa;}
     @Override
     public String toString() {
-        return getName() +" " + getSurname() +" " + "Attendence:" + Attendance + " " + "Retake:" +DeadSouls() +" " +"ScholarShip" +" " + Hungergames() + " Gpa: " + getGpa();
+        return getName() + " "
+                + getSurname() + " "
+                + "Attendence:" + getAttendance() + " "
+                + "Retake:" +DeadSouls() + " "
+                + "ScholarShip:" + " " + Hungergames()
+                + " Gpa: " + getGpa();
     }
 }
