@@ -31,7 +31,6 @@ public class User implements Comparable<User>, Gpa_and_Retake {
             return new Student(name, surname, password,age, gpa, Attendance,id, gender);
         }
     }
-
     public String toString(){
         return "User{" +
                 "id: " + id +
