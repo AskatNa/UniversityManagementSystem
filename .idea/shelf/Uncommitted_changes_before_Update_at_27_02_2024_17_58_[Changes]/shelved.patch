@@ -1,0 +1,17 @@
+Index: src/main/java/org/example/entities/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/Main.java b/src/main/java/org/example/Main.java
+rename from src/main/java/org/example/entities/Main.java
+rename to src/main/java/org/example/Main.java
+--- a/src/main/java/org/example/entities/Main.java	
++++ b/src/main/java/org/example/Main.java	
+@@ -1,4 +1,5 @@
+-package org.example.entities;
++package org.example;
++import org.example.entities.User;
+ 
+ import java.sql.*;
+ 
