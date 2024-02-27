@@ -26,9 +26,12 @@ public class UserService {
             // Check if the name is already registered
             resultSet = stmt.executeQuery("SELECT * FROM users WHERE name = '" + surname + name + "'");
             if (resultSet.next()) {
-                System.out.println("Name already registered. Please choose a different one.");
+                System.out.println("Student already registered. Please choose a different one.");
                 return;
             }
+
+            System.out.println("Enter Your Group:");
+            String group = scanner.nextLine();
 
             System.out.println("Enter Password:");
             String password = scanner.nextLine();
@@ -38,10 +41,12 @@ public class UserService {
                 return;
             }
 
-            preparedStatement = con.prepareStatement("INSERT INTO users (name, surname, password) VALUES (?, ?, ?)");
+            preparedStatement = con.prepareStatement("INSERT INTO users (name, surname, groups, password) VALUES (?, ?, ? , ?)");
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, surname);
-            preparedStatement.setString(3, password);
+            String groups = null;
+            preparedStatement.setString(3, groups);
+            preparedStatement.setString(4, password);
 
             int rowsAffected = preparedStatement.executeUpdate();
 
@@ -55,8 +60,6 @@ public class UserService {
         } catch (SQLException e)  {
             e.printStackTrace();
         }
-
-
         finally {
             try {
                 if (resultSet != null) {
