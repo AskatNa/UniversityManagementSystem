@@ -1,0 +1,118 @@
+Index: src/main/java/org/example/entities/Student.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport lombok.AllArgsConstructor;\r\nimport lombok.Getter;\r\nimport lombok.NoArgsConstructor;\r\nimport lombok.Setter;\r\n\r\nimport java.util.Scanner;\r\n@NoArgsConstructor\r\n@AllArgsConstructor\r\n@Setter\r\n@Getter\r\n\r\npublic class Student extends User {\r\n    private double gpa;\r\n    private final double ScholarShip = 41898.00;\r\n    private final double IncreasedScholarShip = 48000.00;\r\n    private int Attendance;\r\n    private final int percentage = 70;\r\n    private boolean Retake;\r\n    //public String message;\r\n    //Attendence = 70%\r\n    Scanner scanner = new Scanner(System.in);\r\n    public Student(String name, String surname, String password, int age, double gpa, int Attendence, int id, boolean gender, boolean Retake){\r\n        super(name,surname,age, password, id, gender);\r\n        this.gpa = gpa;\r\n        this.Attendance = Attendance;\r\n        this.Retake = Retake;\r\n    }\r\n    @Override\r\n    public double Hungergames() {\r\n        if(DeadSouls()){\r\n            //message = \"No Scholarship\";\r\n            return 0.0;\r\n        }\r\n        else{\r\n            if(gpa >= 2.67 && gpa < 3.67 && gpa < 4.0){\r\n                //message = \"Scholarship\";\r\n                return ScholarShip;}\r\n            else if (gpa >= 3.67 && gpa < 4.0) {\r\n                //message = \"IncreasedScholarship\";\r\n                return IncreasedScholarShip;\r\n            }\r\n            else{\r\n                //message = \"No Scholarship\";\r\n                return 0.0;}\r\n        }\r\n    }\r\n//    @Override\r\n//    public String Message() {\r\n//\r\n//        return null;\r\n//    }\r\n    @Override\r\n    public boolean DeadSouls(){\r\n        if(Attendance < percentage){\r\n            return true;\r\n        }\r\n        else{\r\n            return false;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public double GPADistribution() {return gpa;}\r\n    @Override\r\n    public String toString() {\r\n        return getName() + \" \"\r\n                + getSurname() + \" \"\r\n                + \"Attendence:\" + getAttendance() + \" \"\r\n                + \"Retake:\" +DeadSouls() + \" \"\r\n                + \"ScholarShip:\" + \" \" + Hungergames()\r\n                + \" Gpa: \" + getGpa();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/Student.java b/src/main/java/org/example/entities/Student.java
+--- a/src/main/java/org/example/entities/Student.java	(revision 08c48111f04a1d8a02db5bb1bb9eec7752a5da19)
++++ b/src/main/java/org/example/entities/Student.java	(date 1709039641537)
+@@ -12,6 +12,7 @@
+ @Getter
+ 
+ public class Student extends User {
++
+     private double gpa;
+     private final double ScholarShip = 41898.00;
+     private final double IncreasedScholarShip = 48000.00;
+@@ -21,7 +22,7 @@
+     //public String message;
+     //Attendence = 70%
+     Scanner scanner = new Scanner(System.in);
+-    public Student(String name, String surname, String password, int age, double gpa, int Attendence, int id, boolean gender, boolean Retake){
++    public Student(String name, String surname, String password, int age, double gpa, int Attendance, int id, boolean gender, boolean Retake){
+         super(name,surname,age, password, id, gender);
+         this.gpa = gpa;
+         this.Attendance = Attendance;
+Index: src/main/java/org/example/entities/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport lombok.*;\r\nimport org.example.services.Gpa_and_Retake;\r\n@NoArgsConstructor\r\n@Getter\r\n@Setter\r\n@AllArgsConstructor\r\npublic class User implements Comparable<User>, Gpa_and_Retake {\r\n    private int id;\r\n    private int age;\r\n    private String name;\r\n    private String surname;\r\n    public boolean gender;\r\n    private String password;\r\n    public User(String name,String surname, int age, String password,int id, boolean gender){\r\n        this.name = name;\r\n        this.surname = surname;\r\n        this.age = age;\r\n        this.password = password;\r\n        this.id = id;\r\n        this.gender = gender;\r\n    }\r\n\r\n    public static User createUser (String name, String surname, int age,\r\n                                  String password, int id, boolean gender,\r\n                                  String course, int Attendance, double gpa, boolean position, boolean Retake) {\r\n        if (position) {\r\n            return new Teacher(name, surname, age, course, password, gender, id);\r\n        } else {\r\n            return new Student(name, surname, password, age, gpa, Attendance, id, gender, Retake);\r\n        }\r\n    }\r\n\r\n    public String toString(){\r\n        return \"User{\" +\r\n                \"id: \" + id +\r\n                \", name: \" + name +\r\n                \", surname: \" + surname +\r\n                \", age: \" + age +\r\n                \", gender: \" + (gender ? \"male\" : \"female\") +\r\n                \"}\";\r\n    }\r\n    @Override\r\n    public double Hungergames() {return 0.0;}\r\n   public boolean DeadSouls(){return false;}\r\n    @Override\r\n    public int compareTo(User o) {return Double.compare(this.GPADistribution(), o.GPADistribution());}\r\n\r\n    public double GPADistribution(){return 0;}\r\n\r\n//    @Override\r\n//    public String Message() {\r\n//        return null;\r\n//    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/User.java b/src/main/java/org/example/entities/User.java
+--- a/src/main/java/org/example/entities/User.java	(revision 08c48111f04a1d8a02db5bb1bb9eec7752a5da19)
++++ b/src/main/java/org/example/entities/User.java	(date 1709038298920)
+@@ -49,8 +49,4 @@
+ 
+     public double GPADistribution(){return 0;}
+ 
+-//    @Override
+-//    public String Message() {
+-//        return null;
+-//    }
+ }
+\ No newline at end of file
+Index: src/main/java/org/example/entities/Teacher.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.entities;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Teacher extends User {\r\n    private String course;\r\n    Scanner scanner = new Scanner(System.in);\r\n\r\n    public Teacher(String name, String surname, int age, String course, String password, boolean gender, int id) {\r\n        super(name, surname, age, password, id, gender);\r\n        setCourse(course);\r\n    }\r\n\r\n    public void setCourse(String course) {\r\n        this.course = course;\r\n    }\r\n\r\n    public String getCourse() {\r\n        return course;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return super.toString() + \"\\nCourse: \" + getCourse();\r\n    }\r\n\r\n    public void teacherOperations() {\r\n        System.out.println(\"Teacher Operations Menu:\");\r\n        System.out.println(\"1. View Course Information\");\r\n        System.out.println(\"2. Update Course Information\");\r\n        System.out.println(\"3. Add Assignment\");\r\n        System.out.println(\"4. Grade Assignment\");\r\n        System.out.println(\"5. Exit\");\r\n\r\n        int choice = 0;\r\n        do {\r\n            System.out.print(\"Enter your choice: \");\r\n            choice = scanner.nextInt();\r\n            switch (choice) {\r\n                case 1:\r\n                    viewCourseInformation();\r\n                    break;\r\n                case 2:\r\n                    updateCourseInformation();\r\n                    break;\r\n                case 3:\r\n                    addAssignment();\r\n                    break;\r\n                case 4:\r\n                    gradeAssignment();\r\n                    break;\r\n                case 5:\r\n                    System.out.println(\"Exiting Teacher Operations Menu.\");\r\n                    break;\r\n                default:\r\n                    System.out.println(\"Invalid choice. Please enter a number between 1 and 5.\");\r\n            }\r\n        } while (choice != 5);\r\n    }\r\n\r\n    private void viewCourseInformation() {\r\n        System.out.println(\"Course Information:\");\r\n        System.out.println(\"Name: \" + getCourse());\r\n        // Add more course information as needed\r\n    }\r\n\r\n    private void updateCourseInformation() {\r\n        System.out.print(\"Enter new course name: \");\r\n        String newCourse = scanner.next();\r\n        setCourse(newCourse);\r\n        System.out.println(\"Course information updated successfully.\");\r\n    }\r\n\r\n    private void addAssignment() {\r\n\r\n        System.out.println(\"Enter the assignment title:\");\r\n        String title = scanner.nextLine();\r\n\r\n        System.out.println(\"Enter the assignment description:\");\r\n        String description = scanner.nextLine();\r\n\r\n        System.out.println(\"Enter the due date (YYYY-MM-DD):\");\r\n        String dueDate = scanner.nextLine();\r\n\r\n        // Assuming you have a method to save the assignment, you can call it here\r\n        saveAssignment(title, description, dueDate);\r\n\r\n        System.out.println(\"Assignment added successfully!\");\r\n\r\n        scanner.close();\r\n    }\r\n\r\n    private void saveAssignment(String title, String description, String dueDate) {\r\n        // Logic to save the assignment, for example, store it in a database or a data structure\r\n        System.out.println(\"Assignment Saved: Title - \" + title + \", Description - \" + description + \", Due Date - \" + dueDate);\r\n        // You would typically perform database operations or save to a data structure here\r\n    }\r\n    private void gradeAssignment() {\r\n\r\n        // Assuming a maximum score of 100\r\n        int maxScore = 100;\r\n\r\n        System.out.println(\"Enter the student's score for the assignment:\");\r\n        int studentScore = scanner.nextInt();\r\n\r\n        // Validate input (assuming scores cannot be negative)\r\n        if (studentScore < 0 || studentScore > maxScore) {\r\n            System.out.println(\"Invalid score. Please enter a score between 0 and \" + maxScore);\r\n            return;\r\n        }\r\n\r\n        char grade = calculateGrade(studentScore);\r\n\r\n        System.out.println(\"The student's grade is: \" + grade);\r\n\r\n        scanner.close();\r\n    }\r\n\r\n    private char calculateGrade(int score) {\r\n        // Logic to determine the grade based on the score\r\n        if (score >= 90) {\r\n            return 'A';\r\n        } else if (score >= 80) {\r\n            return 'B';\r\n        } else if (score >= 70) {\r\n            return 'C';\r\n        } else if (score >= 60) {\r\n            return 'D';\r\n        } else {\r\n            return 'F';\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/entities/Teacher.java b/src/main/java/org/example/entities/Teacher.java
+--- a/src/main/java/org/example/entities/Teacher.java	(revision 08c48111f04a1d8a02db5bb1bb9eec7752a5da19)
++++ b/src/main/java/org/example/entities/Teacher.java	(date 1709039641551)
+@@ -4,7 +4,7 @@
+ 
+ public class Teacher extends User {
+     private String course;
+-    Scanner scanner = new Scanner(System.in);
++    private Scanner scanner = new Scanner(System.in);
+ 
+     public Teacher(String name, String surname, int age, String course, String password, boolean gender, int id) {
+         super(name, surname, age, password, id, gender);
+@@ -19,11 +19,6 @@
+         return course;
+     }
+ 
+-    @Override
+-    public String toString() {
+-        return super.toString() + "\nCourse: " + getCourse();
+-    }
+-
+     public void teacherOperations() {
+         System.out.println("Teacher Operations Menu:");
+         System.out.println("1. View Course Information");
+@@ -86,8 +81,6 @@
+         saveAssignment(title, description, dueDate);
+ 
+         System.out.println("Assignment added successfully!");
+-
+-        scanner.close();
+     }
+ 
+     private void saveAssignment(String title, String description, String dueDate) {
+@@ -95,6 +88,7 @@
+         System.out.println("Assignment Saved: Title - " + title + ", Description - " + description + ", Due Date - " + dueDate);
+         // You would typically perform database operations or save to a data structure here
+     }
++
+     private void gradeAssignment() {
+ 
+         // Assuming a maximum score of 100
+@@ -112,9 +106,8 @@
+         char grade = calculateGrade(studentScore);
+ 
+         System.out.println("The student's grade is: " + grade);
+-
+-        scanner.close();
+     }
++
+ 
+     private char calculateGrade(int score) {
+         // Logic to determine the grade based on the score
+@@ -130,4 +123,9 @@
+             return 'F';
+         }
+     }
+-}
+\ No newline at end of file
++
++    @Override
++    public String toString() {
++        return super.toString() + "\nCourse: " + getCourse();
++    }
++}
