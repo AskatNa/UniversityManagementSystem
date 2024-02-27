@@ -62,7 +62,6 @@ public class Student extends User {
 //
 //        return null;
 //    }
-
     @Override
     public boolean DeadSouls(){
         if(Attendance < percentage){
