@@ -18,6 +18,7 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     Statement stat = null;
     List<User> users = new ArrayList<User>();
+
     try {
         Class.forName("org.postgresql.Driver");
         con = DriverManager.getConnection(conString, "postgres", "123456");
@@ -36,8 +37,9 @@ public class Main {
             boolean Retake = resultSet.getBoolean("Retake");
             String course = resultSet.getString("course");
             String password = resultSet.getString("password");
-            User user = User.createUser(name, surname , age, password, id, gender, course, Attendance, gpa , position);
+            User user = User.createUser(name, surname , age, password, id, gender, course, Attendance, gpa , position,Retake);
             users.add(user);
+            
         }
     } catch(ClassNotFoundException e){
         System.out.println(e.getMessage());
@@ -45,7 +47,16 @@ public class Main {
     catch(SQLException e) {
         System.out.println(e.getMessage());
     }
-        for(User user1 : users){
+    finally {
+        try {
+            if (resultSet != null) resultSet.close();
+            if (stat != null) stat.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+        for (User user1 : users) {
             System.out.println(user1);
         }
     }

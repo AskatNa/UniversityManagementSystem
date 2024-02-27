@@ -22,11 +22,11 @@ public class User implements Comparable<User>, Gpa_and_Retake {
 
     public static User createUser (String name, String surname, int age,
                                   String password, int id, boolean gender,
-                                  String course, int Attendance, double gpa, boolean position) {
+                                  String course, int Attendance, double gpa, boolean position, boolean Retake) {
         if (position) {
             return new Teacher(name, surname, age, course, password, gender, id);
         } else {
-            return new Student(name, surname, password, age, gpa, Attendance, id, gender);
+            return new Student(name, surname, password, age, gpa, Attendance, id, gender, Retake);
         }
     }
 

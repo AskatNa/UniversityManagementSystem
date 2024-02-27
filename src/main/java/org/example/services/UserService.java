@@ -39,7 +39,7 @@ public class UserService {
                 return;
             }
 
-            preparedStatement = con.prepareStatement("INSERT INTO registration (name, surname, password) VALUES (?, ?, ?)");
+            preparedStatement = con.prepareStatement("INSERT INTO users (name, surname, password) VALUES (?, ?, ?)");
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, surname);
             preparedStatement.setString(3, password);
@@ -51,9 +51,14 @@ public class UserService {
             } else {
                 System.out.println("Failed to register user.");
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
+        } catch (SQLException e)  {
+            e.printStackTrace();
+        }
+
+
+        finally {
             try {
                 if (resultSet != null) {
                     resultSet.close();
@@ -72,6 +77,17 @@ public class UserService {
                 e.printStackTrace();
             }
         }
+    }
+//    public void addUser() {
+//
+//    }
+
+    public void teacherOperations() {
+
+    }
+
+    public void studentOperations() {
+
     }
 }
 

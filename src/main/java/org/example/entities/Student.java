@@ -12,11 +12,11 @@ public class Student extends User {
     //public String message;
     //Attendence = 70%
     Scanner scanner = new Scanner(System.in);
-    public Student(String name, String surname, String password, int age, double gpa, int Attendence, int id, boolean gender){
+    public Student(String name, String surname, String password, int age, double gpa, int Attendence, int id, boolean gender, boolean Retake){
         super(name,surname,age, password, id, gender);
         this.gpa = gpa;
         this.Attendance = Attendance;
-        Retake = DeadSouls();
+        setRetake(Retake);
     }
 
     public int getAttendance() {
