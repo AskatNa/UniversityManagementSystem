@@ -53,10 +53,12 @@ public class UserService {
                 User user;
                 if (position) {
                     // Teacher
+                    System.out.println("You registered as a Teacher ");
                     System.out.println("Enter Course:");
                     String course = scanner.next();
                     user = new Teacher(name, surname, age, course, password, gender, 0);
-
+                    System.out.println("Enter teacher operation");
+                    ((Teacher)user).teacherOperations();
 
                 }
                 else{

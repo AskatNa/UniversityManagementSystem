@@ -48,8 +48,4 @@ public class User implements Comparable<User>, Gpa_and_Retake {
 
     public double GPADistribution(){return 0;}
 
-//    @Override
-//    public String Message() {
-//        return null;
-//    }
 }
